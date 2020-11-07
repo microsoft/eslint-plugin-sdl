@@ -1,0 +1,3 @@
+# Do not set HTML using unsafe methods from WinJS.Utilities (no-winjs-html-unsafe)
+
+Calls to [`setInnerHTMLUnsafe`](https://docs.microsoft.com/en-us/previous-versions/windows/apps/br211696(v=win.10)), [`setOuterHTMLUnsafe`](https://docs.microsoft.com/en-us/previous-versions/windows/apps/br211698(v=win.10)) or [`insertAdjacentHTMLUnsafe`](https://docs.microsoft.com/en-us/previous-versions/windows/apps/br229832(v=win.10)) methods from [Windows Library for JavaScript](https://docs.microsoft.com/en-us/previous-versions/windows/apps/mt502392(v=win.10)) do not perform input validation and should be avoided. Use alternate methods such as [`setInnerHTML`](https://docs.microsoft.com/en-us/previous-versions/windows/apps/br211697(v=win.10)) instead.
