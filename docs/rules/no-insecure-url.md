@@ -16,12 +16,12 @@ These lists can be overrided by providing options.
 For example, providing these options... :
 ```javascript
 "@microsoft/sdl/no-insecure-url": ["error", {
-            "blacklist": ["^(http|ftp):\\/\\/", "^https:\\/\\/www\\.disallow-example\\.com"],
+            "blocklist": ["^(http|ftp):\\/\\/", "^https:\\/\\/www\\.disallow-example\\.com"],
             "exceptions": ["^http:\\/\\/schemas\\.microsoft\\.com\\/\\/?.*"]
         }]
 ```
 
-... overrides the internal blacklist, blocking the following URL patterns... :
+... overrides the internal blocklist, blocking the following URL patterns... :
 - `http://`...
 - `ftp://`...
 - `https://www.disallow-example.com`
@@ -32,7 +32,7 @@ For example, providing these options... :
   - `http://schemas.microsoft.com/path/subpath`
   - ...
 
-URLs in neither the blacklist nor the exceptions list, are allowed:
+URLs in neither the blocklist nor the exceptions list, are allowed:
 - `telnet://`...
 - `ws://`...
 - ...
