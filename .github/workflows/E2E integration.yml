@@ -57,8 +57,16 @@ jobs:
         working-directory: eslint
         
       - name: Link the eslint-plugin-sdl
-        run: sudo npm link ../eslint-plugin-sdl
+        run: |
+          sudo npm link ../eslint-plugin-sdl
         working-directory: eslint
+        if: runner.os == 'Linux'
+      
+      - name: Link the eslint-plugin-sdl
+        run: |
+          npm link ../eslint-plugin-sdl
+        working-directory: eslint
+        if: runner.os == 'Windows'
         
       - name: Run eslint
         run: npx eslint 
