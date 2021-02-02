@@ -43,6 +43,7 @@ jobs:
       - name: Create eslint directory
         run: |
           mkdir eslint
+        working-directory: ${{github.workspace}}	
         continue-on-error: true
           
       - name: Install eslint for discord library and eslint-plugin-dependencies
