@@ -126,7 +126,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 5}
             ],
             options: [{
-                blacklist: ["htTp:\/\/www\.ban-example\.com\/?.*", "fTp:\/\/www\.ban-file-example\.com\/?.*", "lDAp:\/\/www\.ban-ldap-example\.com\/?.*"]
+                blocklist: ["htTp:\/\/www\.ban-example\.com\/?.*", "fTp:\/\/www\.ban-file-example\.com\/?.*", "lDAp:\/\/www\.ban-ldap-example\.com\/?.*"]
             }]
         },
     ]
