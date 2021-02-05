@@ -8,7 +8,6 @@
 "use strict";
 
 module.exports = {
-  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 6,
     sourceType: "module",
@@ -24,6 +23,7 @@ module.exports = {
       files: [
         "**/*.{ts,tsx}"
       ],
+      parser: "@typescript-eslint/parser",
       rules: {
         "@typescript-eslint/no-implied-eval": "error",
         // @typescript-eslint/no-implied-eval offers more accurate results for typescript.
