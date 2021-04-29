@@ -19,5 +19,13 @@ module.exports = {
     moduleParserOptions: {
         ecmaVersion: 6,
         sourceType: "module"
+    },
+    tsReactParserOptions: {
+        tsconfigRootDir: path.join(__dirname, '../fixtures'),
+        project: 'tsconfig-react.json',
+        sourceType: "module",
+        ecmaFeatures: {
+            jsx: true
+        }
     }
 };
