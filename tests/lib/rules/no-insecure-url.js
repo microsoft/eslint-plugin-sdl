@@ -58,6 +58,19 @@ ruleTester.run(ruleId, rule, {
                 exceptions: ["HTTP:\/\/www\.allow-example\.com\/?.*", "FtP:\/\/www\.allow-file-example\.com", "LdaP:\/\/www\.allow-ldap-example\.com"]
             }]
         },
+        {
+            // should allow xml namespaces, as they are not accessed by the browser
+            code: `
+                const someSvg: React.FC = () => {
+                    return (
+                        <svg xmlns="http://www.w3.org/2000/svg">
+                        </svg>
+                    );
+                };
+            `,
+            parser: testUtils.tsParser,
+            parserOptions: testUtils.tsReactParserOptions,
+        },
     ],
     invalid: [
         {   // should ban http,ftp strings in variables
@@ -128,6 +141,22 @@ ruleTester.run(ruleId, rule, {
             options: [{
                 blocklist: ["htTp:\/\/www\.ban-example\.com\/?.*", "fTp:\/\/www\.ban-file-example\.com\/?.*", "lDAp:\/\/www\.ban-ldap-example\.com\/?.*"]
             }]
+        },
+        {
+            // should ban any other xml attribute with urls in them
+            code: `
+                const someSvg: React.FC = () => {
+                    return (
+                        <svg someOtherAttribute="http://www.w3.org/2000/svg">
+                        </svg>
+                    );
+                };
+            `,
+            errors: [
+                { messageId: "doNotUseInsecureUrl", line: 4},
+            ],
+            parser: testUtils.tsParser,
+            parserOptions: testUtils.tsReactParserOptions,
         },
     ]
 });
