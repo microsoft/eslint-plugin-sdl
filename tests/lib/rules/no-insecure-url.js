@@ -71,6 +71,13 @@ ruleTester.run(ruleId, rule, {
             parser: testUtils.tsParser,
             parserOptions: testUtils.tsReactParserOptions,
         },
+        {
+            // should allow xml namespaces, as they are not accessed by the browser
+            code: `
+                var x = "http://localhost/test"
+                var y = "http://localhost"
+            `
+        }
     ],
     invalid: [
         {   // should ban http,ftp strings in variables
