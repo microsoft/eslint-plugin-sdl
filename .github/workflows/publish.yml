@@ -4,7 +4,6 @@
 name: Publish Package
 
 on:
-  workflow_dispatch:
   release:
     types: [created]
 
