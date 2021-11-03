@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/eslint-plugin-sdl",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "ESLint plugin focused on common security issues and misconfigurations discoverable during static testing as part of Microsoft Security Development Lifecycle (SDL)",
   "keywords": [
     "eslint",
@@ -22,12 +22,12 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
-    "eslint": "^7.1.0",
+    "eslint": "^7.32.0",
     "mocha": "^8.3.2",
     "typescript": "^3.9.7"
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
