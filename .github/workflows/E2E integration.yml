@@ -10,8 +10,8 @@ on:
     branches: [main, release/vNext]
   
 env:
-  PROJECT: discordjs # The name of the project you want to clone. It must be on github
-  REPOSITORY: discord.js # The repository name
+  PROJECT: nodejs # The name of the project you want to clone. It must be on github
+  REPOSITORY: node # The repository name
   FOLDER_TO_SCAN: src # The folder under which the source code you have is contained. Relative to the repository
   TS_CONFIG_PATH: tsconfig.json # The tsconfig.json path relative to the repository
   
