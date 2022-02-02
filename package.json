@@ -19,6 +19,10 @@
   "scripts": {
     "test": "mocha tests --recursive"
   },
+  "dependencies": {
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-security": "1.4.0"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
