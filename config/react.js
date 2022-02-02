@@ -14,6 +14,7 @@ module.exports = {
   ],
   rules: {
     "react/no-danger": "error",
-    "@microsoft/sdl/react-iframe-missing-sandbox": "error"
+    "@microsoft/sdl/react-iframe-missing-sandbox": "error",
+    "react/jsx-no-target-blank": "error"
   }
 }
