@@ -70,7 +70,7 @@ jobs:
         
       - name: Run eslint
         run: npx eslint 
-             -c node_modules/@microsoft/eslint-plugin-sdl/config/recommended.js 
+             -c node_modules/@microsoft/eslint-plugin-sdl/config/required.js 
              ../${{env.PROJECT}}/${{env.FOLDER_TO_SCAN}}/ 
              --ext .js 
              --parser-options=project:../${{env.PROJECT}}/${{env.TS_CONFIG_PATH}} 
