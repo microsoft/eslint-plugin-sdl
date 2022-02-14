@@ -2,3 +2,4 @@
 # Licensed under the MIT License.
 node_modules/
 .vscode/
+package-lock.json
