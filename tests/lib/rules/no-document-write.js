@@ -74,12 +74,16 @@ ruleTester.run(ruleId, rule, {
         document.writeln('...');
         window.document.write('...');
         window.document.writeln('...');
+        newWindow.document.write('...');
+        newWindow.document.writeln('...');
       `,
       errors: [
         { messageId: "default", line: 2 },
         { messageId: "default", line: 3 },
         { messageId: "default", line: 4 },
-        { messageId: "default", line: 5 }
+        { messageId: "default", line: 5 },
+        { messageId: "default", line: 6 },
+        { messageId: "default", line: 7 }
       ]
     }
   ]
