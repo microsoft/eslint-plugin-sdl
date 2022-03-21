@@ -12,7 +12,7 @@ ruleTester.run(ruleId, rule, {
     "aHrefSanitizationTrustedUrlList ('.*')",
     "x.aHrefSanitizationTrustedUrlList ('.*')",
     "$compileProvider.aHrefSanitizationTrustedUrlList ()",
-    "$compileProvider.aHrefSanitizationTrustedUrlList ('.*')"
+    "$compileProvider.AHrefSanitizationTrustedUrlList ('.*')"
   ],
   invalid: [
     {
@@ -23,7 +23,7 @@ ruleTester.run(ruleId, rule, {
           line: 1,
           endLine: 1,
           column: 1,
-          endColumn: 50
+          endColumn: 56
         }
       ]
     },
@@ -35,7 +35,7 @@ ruleTester.run(ruleId, rule, {
           line: 1,
           endLine: 1,
           column: 1,
-          endColumn: 51
+          endColumn: 56
         }
       ]
     }
