@@ -9,14 +9,14 @@ var ruleTester = new RuleTester();
 
 ruleTester.run(ruleId, rule, {
   valid: [
-    "aHrefSanitizationWhitelist('.*')",
-    "x.aHrefSanitizationWhitelist('.*')",
-    "$compileProvider.aHrefSanitizationWhitelist()",
-    "$compileProvider.AHrefSanitizationWhitelist('.*')"
+    "aHrefSanitizationTrustedUrlList ('.*')",
+    "x.aHrefSanitizationTrustedUrlList ('.*')",
+    "$compileProvider.aHrefSanitizationTrustedUrlList ()",
+    "$compileProvider.aHrefSanitizationTrustedUrlList ('.*')"
   ],
   invalid: [
     {
-      code: "$compileProvider.aHrefSanitizationWhitelist('.*');",
+      code: "$compileProvider.aHrefSanitizationTrustedUrlList ('.*');",
       errors: [
         {
           messageId: "noSanitizationWhitelist",
@@ -28,7 +28,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      code: "$compileProvider.imgSrcSanitizationWhitelist('.*');",
+      code: "$compileProvider.imgSrcSanitizationTrustedUrlList('.*');",
       errors: [
         {
           messageId: "noSanitizationWhitelist",
