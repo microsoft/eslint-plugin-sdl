@@ -47,6 +47,7 @@ function main() {
 var somevalue = 'somevalue'; 
 document.domain = somevalue;
 window.document.domain = somevalue;
+newWindow.document.domain = somevalue;
       `,
       errors: [
         { 
@@ -56,6 +57,10 @@ window.document.domain = somevalue;
         {
           line: 4,
           messageId: "default" 
+        },
+        {
+          line: 5,
+          messageId: "default"
         }
       ]
     }
