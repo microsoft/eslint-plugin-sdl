@@ -20,8 +20,6 @@ module.exports = {
       allowReferrer: false,
       enforceDynamicLinks: 'always',
       warnOnSpreadAttributes: true,
-      links: true,
-      forms: true    
      }
     ]
   }
