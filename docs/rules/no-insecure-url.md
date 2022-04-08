@@ -7,7 +7,7 @@ Insecure protocols such as [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transf
 
 ## Options
 This rule comes with two [default lists](../../lib/rules/no-insecure-url.js#L13):
-- **blacklist** - a RegEx list of insecure URL patterns.
+- **blocklist** - a RegEx list of insecure URL patterns.
 - **exceptions** - a RegEx list of common false positive patterns. For example, HTTP URLs to XML schemas are usually allowed as they are used as identifiers, not for establishing actual network connections.
 
 These lists can be overrided by providing options.
