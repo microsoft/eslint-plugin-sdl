@@ -72,12 +72,19 @@ ruleTester.run(ruleId, rule, {
             parserOptions: testUtils.tsReactParserOptions,
         },
         {
-            // should allow xml namespaces, as they are not accessed by the browser
+            // should allow localhost
             code: `
-                var x = "http://localhost/test"
-                var y = "http://localhost"
+                var x = "http://localhost/test";
+                var y = "http://localhost";
             `
-        }
+        },
+        {
+            // should allow xml namespaces for XHTML and SVG even if outside of jsx xmlns attribute
+            code: `
+                var x = "http://www.w3.org/1999/xhtml";
+                var y = "http://www.w3.org/2000/svg";
+            `
+        },
     ],
     invalid: [
         {   // should ban http,ftp strings in variables
@@ -154,7 +161,7 @@ ruleTester.run(ruleId, rule, {
             code: `
                 const someSvg: React.FC = () => {
                     return (
-                        <svg someOtherAttribute="http://www.w3.org/2000/svg">
+                        <svg someOtherAttribute="http://ban-example.com/">
                         </svg>
                     );
                 };
