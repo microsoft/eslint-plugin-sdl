@@ -6,7 +6,7 @@ name: Node CI
 on:
   push:
     branches: [main]
-  pull_request_target:
+  pull_request:
     branches: [main, release/vNext]
 
 jobs:
