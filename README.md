@@ -6,7 +6,44 @@
 
 Plugin is intended as a baseline for projects that follow [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/securityengineering/sdl) and use ESLint to perform [Static Analysis Security Testing (SAST)](https://www.microsoft.com/en-us/securityengineering/sdl/practices#practice9).
 
+## Installation
+
+```sh
+npm install microsoft/eslint-plugin-sdl
+```
+or
+```sh
+yarn add microsoft/eslint-plugin-sdl
+```
+
+## Usage
+When you run npm install within your project's root folder, the plugin will be added automatically to your package.json and package-lock.json files. You can also add the plugin to your package.json file manually by specifying the name and version number in the dependencies section like so:
+
+```sh
+"dependencies": {
+    "@microsoft/eslint-plugin-sdl": "^0.1.9"
+}
+```
+
+Run npm install within your root folder to install everything listed in the dependencies section of package.json. If the plugin is listed in your package.json dependencies, eslint will enforce all plugin rules using default settings.
+
 ## Configs
+Including an eslint configuration file in your project allows you to customize how eslint applies rules to your project. If you are using an .eslintrc file, you can include the plugin by adding:
+
+```sh
+plugins: ["@microsoft/eslint-plugin-sdl"]
+```
+
+Eslint will then only enforce rules you specify in the rules section of your .eslintrc file at the severity level you designate. The severity level options are 0 (no error), 1 (warning), and 2 (error). For example:
+
+```sh
+rules: {
+  "no-eval": 2,
+  "@microsoft/sdl/no-inner-html": 2
+}
+```
+
+You can also used the below Shareable config files as guidelines depending on the type of project.
 
 Plugin is shipped with following [Shareable Configs](http://eslint.org/docs/developer-guide/shareable-configs):
 
