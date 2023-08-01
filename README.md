@@ -1,4 +1,5 @@
 # eslint-plugin-sdl
+
 ![Node CI](https://github.com/microsoft/eslint-plugin-sdl/workflows/Node%20CI/badge.svg?branch=main&event=push)
 ![E2E integration](https://github.com/microsoft/eslint-plugin-sdl/workflows/E2E%20integration/badge.svg?branch=main&event=push)
 
