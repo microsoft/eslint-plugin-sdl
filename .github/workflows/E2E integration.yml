@@ -81,7 +81,7 @@ jobs:
         continue-on-error: true 
         
       - name: Upload eslint results as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: eslint-result
           path: ${{env.PROJECT}}/eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
