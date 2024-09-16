@@ -5,7 +5,6 @@ const path = require("path");
 const ruleId = path.parse(__filename).name;
 const rule = require(path.join('../../../lib/rules/', ruleId));
 const RuleTester = require("eslint").RuleTester;
-const typescriptParserPath = require.resolve("@typescript-eslint/parser");
 const testUtils = require("../test-utils");
 
 var ruleTester = new RuleTester();
@@ -24,8 +23,7 @@ document2.cookie = '...';
 documentLikeAPIFunction().cookie = '...'
     `,
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
 interface DocumentLikeAPI {
   cookie: string;
@@ -62,8 +60,7 @@ documentLikeAPIFunction().cookie = '...';
       errors: [{ messageId: "doNotUseCookies" }]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
 function documentFunction(): Document {
   return window.document;
@@ -73,7 +70,7 @@ documentFunction().cookie = '...';
       errors: [{ messageId: "doNotUseCookies" }]
     },
     {
-      parser: typescriptParserPath,
+      languageOptions: testUtils.tsParserOptions,
       code: `
 namespace Sample {
     function method() {

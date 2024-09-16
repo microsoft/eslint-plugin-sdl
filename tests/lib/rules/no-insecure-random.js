@@ -34,7 +34,7 @@ ruleTester.run(ruleId, rule, {
     `
     },
     {
-      parserOptions: testUtils.moduleParserOptions,
+      languageOptions: testUtils.moduleParserOptions,
       code:`
         import './node_modules/untest';
         import 'random';
@@ -54,8 +54,7 @@ ruleTester.run(ruleId, rule, {
       `
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
       function random(){}
 
@@ -66,8 +65,7 @@ ruleTester.run(ruleId, rule, {
       `
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code:`
         function pseudoRandomBytes(){}
         function pseudoRandomByte(){}
@@ -91,8 +89,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
       Math.random();
       this.Math.random();
@@ -103,8 +100,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
       function notMath() : Math{
         return Math;
@@ -117,8 +113,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
         crypto.pseudoRandomBytes();
       `,
@@ -127,8 +122,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
       function notCrypto() : Crypto{
         return crypto;
@@ -141,7 +135,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      parserOptions: testUtils.moduleParserOptions,
+      languageOptions: testUtils.moduleParserOptions,
       code:`
       import './node_modules/unique-random';
       import 'chance';
@@ -160,7 +154,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      parserOptions: testUtils.moduleParserOptions,
+      languageOptions: testUtils.moduleParserOptions,
       code:`
       import * as chance1 from 'chance';
       import defaultExport from 'chance';

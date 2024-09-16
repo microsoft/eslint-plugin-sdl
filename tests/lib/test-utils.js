@@ -10,10 +10,12 @@
 const path = require("path");
 
 module.exports = {
-    tsParser: require.resolve("@typescript-eslint/parser"),
     tsParserOptions: {
-        tsconfigRootDir: path.join(__dirname, '../fixtures'),
-        project: 'tsconfig.json',
+        parser: require("@typescript-eslint/parser"),
+        parserOptions: {
+            tsconfigRootDir: path.join(__dirname, '../fixtures'),
+            project: 'tsconfig.json'
+        },
         sourceType: "module"
     },
     moduleParserOptions: {
@@ -21,11 +23,14 @@ module.exports = {
         sourceType: "module"
     },
     tsReactParserOptions: {
-        tsconfigRootDir: path.join(__dirname, '../fixtures'),
-        project: 'tsconfig-react.json',
-        sourceType: "module",
-        ecmaFeatures: {
-            jsx: true
-        }
+        parser: require("@typescript-eslint/parser"),
+        parserOptions: {
+            tsconfigRootDir: path.join(__dirname, '../fixtures'),
+            project: 'tsconfig-react.json',
+            ecmaFeatures: {
+                jsx: true
+            },
+        },
+        sourceType: "module"
     }
 };

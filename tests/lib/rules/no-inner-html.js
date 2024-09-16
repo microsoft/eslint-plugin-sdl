@@ -16,8 +16,7 @@ ruleTester.run(ruleId, rule, {
     "document.test",
     "element.insertAdjacentHTML()",
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
         class Test {
           innerHTML: string;
@@ -36,8 +35,7 @@ ruleTester.run(ruleId, rule, {
   invalid: [
     // TypeScript with full type information
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsParserOptions,
       code: `
         var element = document.getElementById(id);
         element.innerHTML = 'test';
