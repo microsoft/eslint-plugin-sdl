@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (41ms)
+      √ bypassSecurityTrustHtml('XSS') (43ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -73,17 +73,8 @@
   no-cookies
     valid
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
       √ 
 function documentLikeAPIFunction(){
   return {
@@ -96,20 +87,11 @@ document2.cookie = '...';
 documentLikeAPIFunction().cookie = '...'
     
 cookie method hit
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: DocumentLikeAPI
 cookie method hit
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: DocumentLikeAPI
 cookie method hit
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: DocumentLikeAPI
       √ 
 interface DocumentLikeAPI {
   cookie: string;
@@ -125,33 +107,18 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (453ms)
+ (500ms)
     invalid
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
       √ document.cookie = '...'
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
       √ window.document.cookie = '...'
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
       √ this.window.document.cookie = '...'
 cookie method hit
-context: true
-isTypeScriptParserServices: false
-program: false
       √ globalThis.window.document.cookie = '...'
 cookie method hit
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: Document
       √ 
 function documentFunction(): Document {
   return window.document;
@@ -159,10 +126,7 @@ function documentFunction(): Document {
 documentFunction().cookie = '...';
       
 cookie method hit
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: Document
       √ 
 namespace Sample {
     function method() {
@@ -173,10 +137,7 @@ namespace Sample {
 
   no-document-domain
     valid
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: DocumentLikeAPI
       √ 
 interface DocumentLikeAPI {
   domain: string;
@@ -190,28 +151,10 @@ function main() {
 }
       
     invalid
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
-      √ var doc = window.document; doc.domain = 'somevalue'; (42ms)
-context: true
-isTypeScriptParserServices: false
-program: false
+Type: Document
+      √ var doc = window.document; doc.domain = 'somevalue';
       √ document.domain = 'somevalue'
-context: true
-isTypeScriptParserServices: false
-program: false
       √ window.document.domain = 'somevalue'
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
       √ 
 var somevalue = 'somevalue'; 
 document.domain = somevalue;
@@ -233,18 +176,6 @@ newWindow.document.domain = somevalue;
           };
         }
       
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
       √ 
         function documentLikeAPIFunction() {
           return {
@@ -264,22 +195,10 @@ program: false
         document.writeln('', '');
       
     invalid
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
-context: true
-isTypeScriptParserServices: true
-program: true
-fullTypeChecker is not null
+Type: Document
+Type: Document
+Type: Document
+Type: Document
       √ 
         var doc = document; 
         doc.write('...');
@@ -290,24 +209,6 @@ fullTypeChecker is not null
         documentFunction().write('...');
         documentFunction().writeln('...');        
       
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
-context: true
-isTypeScriptParserServices: false
-program: false
       √ 
         document.write('...');
         document.writeln('...');
@@ -542,7 +443,7 @@ program: false
                         </svg>
                     );
                 };
-             (307ms)
+             (244ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
