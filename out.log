@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (43ms)
+      √ bypassSecurityTrustHtml('XSS') (40ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -72,9 +72,6 @@
 
   no-cookies
     valid
-cookie method hit
-cookie method hit
-cookie method hit
       √ 
 function documentLikeAPIFunction(){
   return {
@@ -86,11 +83,14 @@ document2.cookie = '...';
 document2.cookie = '...'; 
 documentLikeAPIFunction().cookie = '...'
     
-cookie method hit
+tsType: [object Object]
+type: DocumentLikeAPI
 Type: DocumentLikeAPI
-cookie method hit
+tsType: [object Object]
+type: DocumentLikeAPI
 Type: DocumentLikeAPI
-cookie method hit
+tsType: [object Object]
+type: DocumentLikeAPI
 Type: DocumentLikeAPI
       √ 
 interface DocumentLikeAPI {
@@ -107,17 +107,14 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (500ms)
+ (410ms)
     invalid
-cookie method hit
       √ document.cookie = '...'
-cookie method hit
       √ window.document.cookie = '...'
-cookie method hit
       √ this.window.document.cookie = '...'
-cookie method hit
       √ globalThis.window.document.cookie = '...'
-cookie method hit
+tsType: [object Object]
+type: Document
 Type: Document
       √ 
 function documentFunction(): Document {
@@ -125,7 +122,8 @@ function documentFunction(): Document {
 }
 documentFunction().cookie = '...';
       
-cookie method hit
+tsType: [object Object]
+type: Document
 Type: Document
       √ 
 namespace Sample {
@@ -137,6 +135,8 @@ namespace Sample {
 
   no-document-domain
     valid
+tsType: [object Object]
+type: DocumentLikeAPI
 Type: DocumentLikeAPI
       √ 
 interface DocumentLikeAPI {
@@ -151,6 +151,8 @@ function main() {
 }
       
     invalid
+tsType: [object Object]
+type: Document
 Type: Document
       √ var doc = window.document; doc.domain = 'somevalue';
       √ document.domain = 'somevalue'
@@ -195,9 +197,17 @@ newWindow.document.domain = somevalue;
         document.writeln('', '');
       
     invalid
+tsType: [object Object]
+type: Document
 Type: Document
+tsType: [object Object]
+type: Document
 Type: Document
+tsType: [object Object]
+type: Document
 Type: Document
+tsType: [object Object]
+type: Document
 Type: Document
       √ 
         var doc = document; 
@@ -276,6 +286,14 @@ Type: Document
       √ document.body.innerHTML = ''
       √ document.test
       √ element.insertAdjacentHTML()
+tsType: [object Object]
+type: this
+tsType: [object Object]
+type: this
+tsType: [object Object]
+type: Test
+tsType: [object Object]
+type: Test
       √ 
         class Test {
           innerHTML: string;
@@ -290,6 +308,12 @@ Type: Document
         test.outerHTML = test;
       
     invalid
+tsType: [object Object]
+type: HTMLElement
+tsType: [object Object]
+type: HTMLElement
+tsType: [object Object]
+type: HTMLElement
       √ 
         var element = document.getElementById(id);
         element.innerHTML = 'test';
@@ -362,10 +386,16 @@ Type: Document
         Math.random();
         crypto.pseudoRandomBytes();
       
+tsType: [object Object]
+type: Math
+tsType: [object Object]
+type: Math
       √ 
       Math.random();
       this.Math.random();
       
+tsType: [object Object]
+type: Math
       √ 
       function notMath() : Math{
         return Math;
@@ -373,9 +403,13 @@ Type: Document
     
       notMath().random();
       
+tsType: [object Object]
+type: Crypto
       √ 
         crypto.pseudoRandomBytes();
       
+tsType: [object Object]
+type: Crypto
       √ 
       function notCrypto() : Crypto{
         return crypto;
@@ -443,7 +477,7 @@ Type: Document
                         </svg>
                     );
                 };
-             (244ms)
+             (292ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
