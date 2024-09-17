@@ -1,0 +1,572 @@
+
+> @microsoft/eslint-plugin-sdl@0.2.2 test
+> mocha tests --recursive
+
+
+
+  no-angular-bypass-sanitizer
+    valid
+      √ bypassSecurityTrustHtml('XSS') (42ms)
+      √ x.bypassSecurityTrustHtml()
+      √ x.BypassSecurityTrustHtml('XSS')
+    invalid
+      √ $('p').bypassSecurityTrustHtml('XSS');
+      √ $('p').bypassSecurityTrustResourceUrl('XSS')
+      √ $('p').bypassSecurityTrustScript('XSS')
+      √ $('p').bypassSecurityTrustStyle('XSS')
+      √ $('p').bypassSecurityTrustUrl('XSS')
+
+  no-angular-sanitization-trusted-urls
+    valid
+      √ aHrefSanitizationTrustedUrlList ('.*')
+      √ x.aHrefSanitizationTrustedUrlList ('.*')
+      √ $compileProvider.aHrefSanitizationTrustedUrlList ()
+      √ $compileProvider.AHrefSanitizationTrustedUrlList ('.*')
+    invalid
+      √ $compileProvider.aHrefSanitizationTrustedUrlList ('.*');
+      √ $compileProvider.imgSrcSanitizationTrustedUrlList('.*');
+
+  no-angularjs-bypass-sce
+    valid
+      √ trustAsHtml()
+      √ $sce.trustAsHtml()
+      √ $sce.trustAsHtml('')
+      √ $sce.TrustAsHtml('XSS')
+      √ x.trustAsHtml('XSS')
+      √ $sceProvider.enabled()
+      √ $sceProvider.enabled(true)
+      √ $sceProvider.enabled(1)
+    invalid
+      √ $sceDelegate.trustAs($sce.HTML, 'XSS')
+      √ $sce.trustAs($sce.HTML, 'XSS')
+      √ $sce.trustAsCss('XSS')
+      √ $sce.trustAsHtml('XSS')
+      √ $sce.trustAsJs('XSS')
+      √ $sce.trustAsResourceUrl('XSS')
+      √ $sce.trustAsUrl('XSS')
+      √ $sceProvider.enabled(false)
+      √ $sceProvider.enabled(0)
+      √ $sceProvider.enabled(true != true)
+
+  no-angularjs-enable-svg
+    valid
+      √ enableSvg()
+      √ enableSvg(true)
+      √ $sanitizeProvider.enableSvg()
+      √ $sanitizeProvider.enableSvg(false)
+      √ $sanitizeProvider.enableSvg(0)
+      √ $sanitizeProvider.EnableSvg(0)
+    invalid
+      √ $sanitizeProvider.enableSvg(true)
+      √ $sanitizeProvider.enableSvg(1)
+
+  no-angularjs-sanitization-whitelist
+    valid
+      √ aHrefSanitizationWhitelist('.*')
+      √ x.aHrefSanitizationWhitelist('.*')
+      √ $compileProvider.aHrefSanitizationWhitelist()
+      √ $compileProvider.AHrefSanitizationWhitelist('.*')
+    invalid
+      √ $compileProvider.aHrefSanitizationWhitelist('.*');
+      √ $compileProvider.imgSrcSanitizationWhitelist('.*');
+
+  no-cookies
+    valid
+cookie method hit
+cookie method hit
+cookie method hit
+      √ 
+function documentLikeAPIFunction(){
+  return {
+    cookie:'fake.cookie'
+  }
+}
+var document2 = documentLikeAPIFunction(); 
+document2.cookie = '...'; 
+document2.cookie = '...'; 
+documentLikeAPIFunction().cookie = '...'
+    
+cookie method hit
+cookie method hit
+cookie method hit
+      √ 
+interface DocumentLikeAPI {
+  cookie: string;
+}
+function documentLikeAPIFunction(): DocumentLikeAPI {
+  return null;
+}
+function X() {
+  // These usages are OK because they are not on the DOM document
+  var document: DocumentLikeAPI = documentLikeAPIFunction();
+  document.cookie = '...';
+  document.cookie = '...';
+}
+
+documentLikeAPIFunction().cookie = '...';
+ (413ms)
+    invalid
+cookie method hit
+      √ document.cookie = '...'
+cookie method hit
+      √ window.document.cookie = '...'
+cookie method hit
+      √ this.window.document.cookie = '...'
+cookie method hit
+      √ globalThis.window.document.cookie = '...'
+cookie method hit
+      √ 
+function documentFunction(): Document {
+  return window.document;
+}
+documentFunction().cookie = '...';
+      
+cookie method hit
+      √ 
+namespace Sample {
+    function method() {
+        return document.cookie;
+    }
+}
+      
+
+  no-document-domain
+    valid
+      √ 
+interface DocumentLikeAPI {
+  domain: string;
+}
+function documentLikeAPIFunction(): DocumentLikeAPI {
+  return null;
+}
+function main() {
+  var document: DocumentLikeAPI = documentLikeAPIFunction();
+  document.domain = 'somevalue';
+}
+      
+    invalid
+      √ var doc = window.document; doc.domain = 'somevalue';
+      √ document.domain = 'somevalue'
+      √ window.document.domain = 'somevalue'
+      √ 
+var somevalue = 'somevalue'; 
+document.domain = somevalue;
+window.document.domain = somevalue;
+newWindow.document.domain = somevalue;
+      
+
+  no-document-write
+    valid
+      √      
+        interface DocumentLikeAPI {
+          write: ((arg : string) => void);
+          writeln: ((arg : string) => void);
+        }
+        function documentLikeAPIFunction() : DocumentLikeAPI {
+          return {
+            write: () => {},
+            writeln: () => {},
+          };
+        }
+      
+      √ 
+        function documentLikeAPIFunction() {
+          return {
+            write: function(){},
+            writeln: function(){}
+          };
+        }
+        var documentAPI = documentLikeAPIFunction();
+        documentAPI.write('...');
+        documentAPI.writeln('...');
+        documentLikeAPIFunction().write('...');
+        documentLikeAPIFunction().writeln('...');
+        // wrong # of args
+        document.write();
+        document.write('', '');
+        document.writeln();
+        document.writeln('', '');
+      
+    invalid
+      √ 
+        var doc = document; 
+        doc.write('...');
+        doc.writeln('...');
+        function documentFunction() : Document {
+          return window.document;
+        }
+        documentFunction().write('...');
+        documentFunction().writeln('...');        
+      
+      √ 
+        document.write('...');
+        document.writeln('...');
+        window.document.write('...');
+        window.document.writeln('...');
+        newWindow.document.write('...');
+        newWindow.document.writeln('...');
+      
+
+  no-electron-node-integration
+    valid
+      √ 
+        var mainWindow = new BrowserWindow({
+          webPreferences: {
+            nodeIntegration: false,
+            nodeIntegrationInWorker: false,
+            nodeIntegrationInSubFrames: false
+          }
+        });
+        var view = new BrowserView({
+          webPreferences: {
+            nodeIntegration: false
+          }
+        });
+      
+    invalid
+      √ 
+        var mainWindow = new BrowserWindow({
+          webPreferences: {
+            nodeIntegration: true,
+            nodeIntegrationInWorker: true,
+            nodeIntegrationInSubFrames: true
+          }
+        });
+      
+      √ 
+        var view = new BrowserView({
+          webPreferences: {
+            nodeIntegration: true,
+            nodeIntegrationInWorker: true,
+            nodeIntegrationInSubFrames: true
+          }
+        });
+      
+
+  no-html-method
+    valid
+      √ test.html = 'test'
+      √ test.html()
+      √ test.html('','')
+      √ element.html('');
+      √ element.html(null);
+    invalid
+      √ $('p').html('XSS')
+      √ $(selector).html(sample_function())
+      √ 
+        import $ from "jquery";
+        test.html('XSS');  
+      
+
+  no-inner-html
+    valid
+      √ var test = element.innerHTML
+      √ var test = element.outerHTML
+      √ document.body.innerHTML = ''
+      √ document.test
+      √ element.insertAdjacentHTML()
+      √ 
+        class Test {
+          innerHTML: string;
+          outerHTML: string;
+          constructor(test: string) {
+              this.innerHTML = test;
+              this.outerHTML = test;
+          }
+        };
+        let test = new Test("test");
+        test.innerHTML = test;
+        test.outerHTML = test;
+      
+    invalid
+      √ 
+        var element = document.getElementById(id);
+        element.innerHTML = 'test';
+        element.outerHTML = 'test';
+        element.insertAdjacentHTML('beforebegin', 'foo');
+      
+      √ 
+        element.innerHTML = 'test';
+        parent.child.innerHTML += 'test';
+      
+      √ 
+        element.outerHTML = 'test';
+        parent.child.outerHTML += 'test';
+      
+      √ element.insertAdjacentHTML('beforebegin', 'foo')
+
+  no-insecure-random
+    valid
+      √ Math.Random;
+      √ Math.random;
+      √ math.random();
+      √ random();
+      √ 
+      Math.Random;
+      Math.random;
+      math.random();
+      random();
+      
+      √ 
+      require('./node_modules/not-unsafe-random');
+      require('eslint');
+      require('test');
+      require('random-package');
+      require('random-float2');
+      require('random2-seed');
+    
+      √ 
+        import './node_modules/untest';
+        import 'random';
+        import 'random-3';
+        import 'eslint';
+        import 'eslint-plugin-sdl';
+        import 'testing';
+      
+      √ 
+        cryptos.pseudoRandomBytes();
+        pseudoRandomBytes();
+        pseudoRandomByte();
+        cryptos.pseudoRondomBytes();
+      
+      √ 
+      function random(){}
+
+      random();
+
+      Math.Random;
+      Math.random;
+      
+      √ 
+        function pseudoRandomBytes(){}
+        function pseudoRandomByte(){}
+
+        pseudoRandomBytes();
+        pseudoRandomByte();
+        cryptos.pseudoRondomBytes();
+        cryptos.pseudoRondomBytes();
+      
+    invalid
+      √ 
+        Math.random();
+        crypto.pseudoRandomBytes();
+      
+      √ 
+      Math.random();
+      this.Math.random();
+      
+      √ 
+      function notMath() : Math{
+        return Math;
+      }
+    
+      notMath().random();
+      
+      √ 
+        crypto.pseudoRandomBytes();
+      
+      √ 
+      function notCrypto() : Crypto{
+        return crypto;
+      }
+    
+      notCrypto().pseudoRandomBytes();
+      
+      √ 
+      import './node_modules/unique-random';
+      import 'chance';
+      import 'random-number';
+      import 'random-int';
+      import 'random-float';
+      import 'random-seed';
+      
+      √ 
+      import * as chance1 from 'chance';
+      import defaultExport from 'chance';
+      import { chance } from 'chance';
+      import { chance as chance2 } from 'chance'; 
+      import { chance3, chance4 } from 'chance';
+      
+      √ 
+        require('./node_modules/unique-random');
+        require('**/chance.js');
+        require('random-number');
+        require('random-int');
+        require('random-float');
+        require('random-seed');
+      
+
+  no-insecure-url
+    valid
+      √ 
+                var x = 'https://www.example.com'
+                var y = 'ftps://www.example.com'
+            
+      √ 
+                var x = `https://www.template-examples.com`
+                var y = `ftps://www.template-file-examples.com`
+            
+      √ 
+                var x = `https://www.${multipartExample}.com`
+                var y = `ftps://www.${multipartExample}.com`
+            
+      √ var x = 'The protocol may be http://, https://, ftp:// or ftps://'
+      √ 
+                function f(x : string = 'https://www.example.com') {}
+                function f(y : string = 'ftps://www.example.com') {}
+            
+      √ 
+                var a1 = 'http://www.allow-example.com'
+                var a2 = 'HtTp://www.allow-example.com/path'
+                var b1 = 'FTP://www.allow-file-example.com'
+                var c1 = 'LDaP://www.allow-ldap-example.com'
+            
+      √ 
+                var insecureURL = 'http://www.allow-example.com'
+                var InSeCuReURL = 'ftp://www.allow-example.com/path'
+            
+      √ 
+                const someSvg: React.FC = () => {
+                    return (
+                        <svg xmlns="http://www.w3.org/2000/svg">
+                        </svg>
+                    );
+                };
+             (217ms)
+      √ 
+                var x = "http://localhost/test";
+                var y = "http://localhost";
+            
+      √ 
+                var x = "http://www.w3.org/1999/xhtml";
+                var y = "http://www.w3.org/2000/svg";
+            
+    invalid
+      √ 
+                var x1 = 'http://www.examples.com'
+                var x2 = 'HTTP://www.examples.com'
+                var y1 = 'ftp://www.file-examples.com'
+                var y2 = 'FTP://www.file-examples.com'
+            
+      √ 
+                var x1 = `http://www.template-examples.com`
+                var x2 = `HTTP://www.template-examples.com`
+                var y1 = `ftp://www.file-examples.com`
+                var y2 = `FTP://www.file-examples.com`
+            
+      √ 
+                var x1 = `http://www.${multipartExample}.com`;
+                var y1 = `ftp://www.${multipartExample}.com`;
+            
+      √ 
+                function f(x : string = 'http://www.example.com') {}
+                function f(y : string = 'ftp://www.example.com') {}
+            
+      √ 
+                var a1 = 'http://www.ban-example.com'
+                var a2 = 'HTTP://www.ban-example.com/path'
+                var b1 = 'FtP://www.ban-file-example.com'
+                var c1 = 'LDAp://www.ban-ldap-example.com'
+            
+      √ 
+                const someSvg: React.FC = () => {
+                    return (
+                        <svg someOtherAttribute="http://ban-example.com/">
+                        </svg>
+                    );
+                };
+            
+      √ var a1 = "http://moz\u0009i\u0009lla.org";
+      √ var x1 = `http://foo${multipartExample} http://${multipartExample}.com`;
+      √ var a1 = `http://moz\u0009i\u0009lla.org`;
+
+  no-msapp-exec-unsafe
+    valid
+      √ test.execUnsafeLocalFunction = 'test'
+      √ MSApp.execUnsafeLocalFunction()
+    invalid
+      √ MSApp.execUnsafeLocalFunction(testfunc)
+
+  no-postmessage-star-origin
+    valid
+      √ window.postMessage()
+      √ window.postMessage = ''
+      √ window.postMessage(1)
+      √ window.postMessage(1, 2, 3, 4)
+      √ window.postMessage('data', 'https://target.domain')
+      √ window.postMessage('data', 'https://target.domain', 'menubar=yes')
+      √ 
+class WindowLike {
+  postMessage(): void {
+  };
+}
+function main() {
+  var w: WindowLike = new WindowLike();
+  w.postMessage('test', '*');
+}
+      
+    invalid
+      √ 
+        any.postMessage(message, "*");
+        any.postMessage(message, "*", "menubar=yes");
+      
+      √ 
+        window.frames[0].postMessage(message, "*");
+        var w1 = window.open(url);
+        w1.postMessage(message, "*");
+      
+
+  no-unsafe-alloc
+    valid
+      √ foo.allocUnsafe
+      √ Buffer.allocUnsafe(0)
+      √ Buffer.allocUnsafeSlow(0)
+    invalid
+      √ 
+        var buf1 = Buffer.allocUnsafe(10);
+        var buf2 = Buffer.allocUnsafeSlow(10)
+      
+
+  no-winjs-html-unsafe
+    valid
+      √ element.insertAdjacentHTMLUnsafe = "test";
+    invalid
+      √ 
+        WinJS.Utilities.insertAdjacentHTMLUnsafe(element, position, text);
+        WinJS.Utilities.setInnerHTMLUnsafe(element, text);
+        WinJS.Utilities.setOuterHTMLUnsafe(element, text);
+      
+
+  react-iframe-missing-sandbox
+    valid
+      √ <div sandbox="__unknown__" />;
+      √ <iframe sandbox="" />;
+      √ <iframe src="foo.htm" sandbox></iframe>
+      √ <iframe src="foo.htm" sandbox sandbox></iframe>
+      √ <iframe sandbox={""} />
+      √ <iframe sandbox="allow-forms"></iframe>
+      √ <iframe sandbox="allow-modals"></iframe>
+      √ <iframe sandbox="allow-orientation-lock"></iframe>
+      √ <iframe sandbox="allow-pointer-lock"></iframe>
+      √ <iframe sandbox="allow-popups"></iframe>
+      √ <iframe sandbox="allow-popups-to-escape-sandbox"></iframe>
+      √ <iframe sandbox="allow-presentation"></iframe>
+      √ <iframe sandbox="allow-same-origin"></iframe>
+      √ <iframe sandbox="allow-scripts"></iframe>
+      √ <iframe sandbox="allow-top-navigation"></iframe>
+      √ <iframe sandbox="allow-top-navigation-by-user-activation"></iframe>
+      √ <iframe sandbox="allow-forms allow-modals"></iframe>
+      √ <iframe sandbox="allow-popups allow-popups-to-escape-sandbox allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>
+    invalid
+      √ <iframe></iframe>;
+      √ <iframe/>;
+      √ <iframe sandbox="__unknown__"></iframe>
+      √ <iframe sandbox="allow-popups __unknown__"/>
+      √ <iframe sandbox="__unknown__ allow-popups"/>
+      √ <iframe sandbox=" allow-forms __unknown__ allow-popups __unknown__  "/>
+      √ <iframe sandbox="allow-scripts allow-same-origin"></iframe>;
+      √ <iframe sandbox="allow-same-origin allow-scripts"/>;
+
+
+  165 passing (1s)
+
