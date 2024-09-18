@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "jsx": "preserve"
+        "jsx": "preserve",
+        "lib": ["dom"]
     },
     "include": [
         "estree.ts"
