@@ -2,14 +2,11 @@
 > @microsoft/eslint-plugin-sdl@0.2.2 test
 > mocha tests --recursive
 
-dirC:\Enlistments\eslint-plugin-sdl\tests\lib
-tsconfigC:\Enlistments\eslint-plugin-sdl\tests\fixtures\tsconfig.json
-tsconfig exists
 
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (90ms)
+      √ bypassSecurityTrustHtml('XSS') (46ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -75,7 +72,7 @@ tsconfig exists
 
   no-cookies
     valid
-      √ 
+      1) 
 function documentLikeAPIFunction(){
   return {
     cookie:'fake.cookie'
@@ -86,9 +83,10 @@ document2.cookie = '...';
 document2.cookie = '...'; 
 documentLikeAPIFunction().cookie = '...'
     
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 interface DocumentLikeAPI {
   cookie: string;
@@ -104,31 +102,33 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (1503ms)
+ (499ms)
     invalid
-      √ document.cookie = '...' (42ms)
-      √ window.document.cookie = '...'
-      √ this.window.document.cookie = '...'
-      √ globalThis.window.document.cookie = '...'
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+      2) document.cookie = '...'
+      3) window.document.cookie = '...'
+      4) this.window.document.cookie = '...'
+      5) globalThis.window.document.cookie = '...'
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 function documentFunction(): Document {
   return window.document;
 }
 documentFunction().cookie = '...';
-       (59ms)
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+      
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 namespace Sample {
     function method() {
         return document.cookie;
     }
 }
-       (44ms)
+      
 
   no-document-domain
     valid
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 interface DocumentLikeAPI {
   domain: string;
@@ -142,8 +142,8 @@ function main() {
 }
       
     invalid
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-      √ var doc = window.document; doc.domain = 'somevalue'; (137ms)
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+      √ var doc = window.document; doc.domain = 'somevalue';
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -186,10 +186,10 @@ newWindow.document.domain = somevalue;
         document.writeln('', '');
       
     invalid
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         var doc = document; 
         doc.write('...');
@@ -267,10 +267,10 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
       √ document.body.innerHTML = ''
       √ document.test
       √ element.insertAdjacentHTML()
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         class Test {
           innerHTML: string;
@@ -283,11 +283,11 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-       (39ms)
+      
     invalid
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         var element = document.getElementById(id);
         element.innerHTML = 'test';
@@ -360,13 +360,13 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
         Math.random();
         crypto.pseudoRandomBytes();
       
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       Math.random();
       this.Math.random();
       
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       function notMath() : Math{
         return Math;
@@ -374,11 +374,11 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
     
       notMath().random();
       
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         crypto.pseudoRandomBytes();
       
-config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       function notCrypto() : Crypto{
         return crypto;
@@ -446,7 +446,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
                         </svg>
                     );
                 };
-             (513ms)
+             (230ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -475,7 +475,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
       √ 
                 function f(x : string = 'http://www.example.com') {}
                 function f(y : string = 'ftp://www.example.com') {}
-             (86ms)
+            
       √ 
                 var a1 = 'http://www.ban-example.com'
                 var a2 = 'HTTP://www.ban-example.com/path'
@@ -582,5 +582,113 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  165 passing (3s)
+  160 passing (1s)
+  5 failing
+
+  1) no-cookies
+       valid
+         
+function documentLikeAPIFunction(){
+  return {
+    cookie:'fake.cookie'
+  }
+}
+var document2 = documentLikeAPIFunction(); 
+document2.cookie = '...'; 
+document2.cookie = '...'; 
+documentLikeAPIFunction().cookie = '...'
+    :
+     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+Occurred while linting <input>
+      at Object.create (lib\rules\no-cookies.js:32:87)
+      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
+      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
+      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
+      at Array.forEach (<anonymous>)
+      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
+      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
+      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
+      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
+      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
+      at testValidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:911:28)
+      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1261:33)
+      at process.processImmediate (node:internal/timers:483:21)
+
+  2) no-cookies
+       invalid
+         document.cookie = '...':
+     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+Occurred while linting <input>
+      at Object.create (lib\rules\no-cookies.js:32:87)
+      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
+      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
+      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
+      at Array.forEach (<anonymous>)
+      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
+      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
+      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
+      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
+      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
+      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
+      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
+      at process.processImmediate (node:internal/timers:483:21)
+
+  3) no-cookies
+       invalid
+         window.document.cookie = '...':
+     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+Occurred while linting <input>
+      at Object.create (lib\rules\no-cookies.js:32:87)
+      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
+      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
+      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
+      at Array.forEach (<anonymous>)
+      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
+      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
+      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
+      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
+      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
+      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
+      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
+      at process.processImmediate (node:internal/timers:483:21)
+
+  4) no-cookies
+       invalid
+         this.window.document.cookie = '...':
+     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+Occurred while linting <input>
+      at Object.create (lib\rules\no-cookies.js:32:87)
+      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
+      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
+      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
+      at Array.forEach (<anonymous>)
+      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
+      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
+      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
+      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
+      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
+      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
+      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
+      at process.processImmediate (node:internal/timers:483:21)
+
+  5) no-cookies
+       invalid
+         globalThis.window.document.cookie = '...':
+     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+Occurred while linting <input>
+      at Object.create (lib\rules\no-cookies.js:32:87)
+      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
+      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
+      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
+      at Array.forEach (<anonymous>)
+      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
+      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
+      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
+      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
+      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
+      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
+      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
+      at process.processImmediate (node:internal/timers:483:21)
+
+
 
