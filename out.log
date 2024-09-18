@@ -4,11 +4,12 @@
 
 dirC:\Enlistments\eslint-plugin-sdl\tests\lib
 tsconfigC:\Enlistments\eslint-plugin-sdl\tests\fixtures\tsconfig.json
+tsconfig exists
 
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (91ms)
+      √ bypassSecurityTrustHtml('XSS') (90ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -103,9 +104,9 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (945ms)
+ (1503ms)
     invalid
-      √ document.cookie = '...'
+      √ document.cookie = '...' (42ms)
       √ window.document.cookie = '...'
       √ this.window.document.cookie = '...'
       √ globalThis.window.document.cookie = '...'
@@ -115,7 +116,7 @@ function documentFunction(): Document {
   return window.document;
 }
 documentFunction().cookie = '...';
-      
+       (59ms)
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 namespace Sample {
@@ -123,7 +124,7 @@ namespace Sample {
         return document.cookie;
     }
 }
-      
+       (44ms)
 
   no-document-domain
     valid
@@ -142,7 +143,7 @@ function main() {
       
     invalid
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-      √ var doc = window.document; doc.domain = 'somevalue'; (49ms)
+      √ var doc = window.document; doc.domain = 'somevalue'; (137ms)
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -282,7 +283,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-       (40ms)
+       (39ms)
     invalid
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
@@ -445,7 +446,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
                         </svg>
                     );
                 };
-             (332ms)
+             (513ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -474,7 +475,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
       √ 
                 function f(x : string = 'http://www.example.com') {}
                 function f(y : string = 'ftp://www.example.com') {}
-            
+             (86ms)
       √ 
                 var a1 = 'http://www.ban-example.com'
                 var a2 = 'HTTP://www.ban-example.com/path'
@@ -581,5 +582,5 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  165 passing (2s)
+  165 passing (3s)
 
