@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (126ms)
+      √ bypassSecurityTrustHtml('XSS') (98ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -83,7 +83,10 @@ document2.cookie = '...';
 document2.cookie = '...'; 
 documentLikeAPIFunction().cookie = '...'
     
-      1) 
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+      √ 
 interface DocumentLikeAPI {
   cookie: string;
 }
@@ -98,28 +101,31 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
-
+ (1115ms)
     invalid
       √ document.cookie = '...'
       √ window.document.cookie = '...'
       √ this.window.document.cookie = '...'
       √ globalThis.window.document.cookie = '...'
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
 function documentFunction(): Document {
   return window.document;
 }
 documentFunction().cookie = '...';
-       (50ms)
+      
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
 namespace Sample {
     function method() {
         return document.cookie;
     }
 }
-       (42ms)
+       (39ms)
 
   no-document-domain
     valid
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
 interface DocumentLikeAPI {
   domain: string;
@@ -131,9 +137,10 @@ function main() {
   var document: DocumentLikeAPI = documentLikeAPIFunction();
   document.domain = 'somevalue';
 }
-       (48ms)
+      
     invalid
-      √ var doc = window.document; doc.domain = 'somevalue'; (103ms)
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+      √ var doc = window.document; doc.domain = 'somevalue'; (77ms)
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -176,6 +183,10 @@ newWindow.document.domain = somevalue;
         document.writeln('', '');
       
     invalid
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
         var doc = document; 
         doc.write('...');
@@ -185,7 +196,7 @@ newWindow.document.domain = somevalue;
         }
         documentFunction().write('...');
         documentFunction().writeln('...');        
-       (44ms)
+      
       √ 
         document.write('...');
         document.writeln('...');
@@ -244,7 +255,7 @@ newWindow.document.domain = somevalue;
       √ 
         import $ from "jquery";
         test.html('XSS');  
-       (124ms)
+      
 
   no-inner-html
     valid
@@ -253,6 +264,10 @@ newWindow.document.domain = somevalue;
       √ document.body.innerHTML = ''
       √ document.test
       √ element.insertAdjacentHTML()
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
         class Test {
           innerHTML: string;
@@ -265,8 +280,11 @@ newWindow.document.domain = somevalue;
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-       (77ms)
+       (39ms)
     invalid
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
         var element = document.getElementById(id);
         element.innerHTML = 'test';
@@ -333,16 +351,19 @@ newWindow.document.domain = somevalue;
         pseudoRandomByte();
         cryptos.pseudoRondomBytes();
         cryptos.pseudoRondomBytes();
-       (42ms)
+      
     invalid
       √ 
         Math.random();
         crypto.pseudoRandomBytes();
       
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
       Math.random();
       this.Math.random();
       
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
       function notMath() : Math{
         return Math;
@@ -350,9 +371,11 @@ newWindow.document.domain = somevalue;
     
       notMath().random();
       
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
         crypto.pseudoRandomBytes();
       
+lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ 
       function notCrypto() : Crypto{
         return crypto;
@@ -393,7 +416,7 @@ newWindow.document.domain = somevalue;
       √ 
                 var x = `https://www.template-examples.com`
                 var y = `ftps://www.template-file-examples.com`
-             (38ms)
+            
       √ 
                 var x = `https://www.${multipartExample}.com`
                 var y = `ftps://www.${multipartExample}.com`
@@ -420,7 +443,7 @@ newWindow.document.domain = somevalue;
                         </svg>
                     );
                 };
-             (1397ms)
+             (539ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -502,7 +525,7 @@ function main() {
         window.frames[0].postMessage(message, "*");
         var w1 = window.open(url);
         w1.postMessage(message, "*");
-       (53ms)
+       (55ms)
 
   no-unsafe-alloc
     valid
@@ -556,30 +579,5 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  164 passing (2m)
-  1 failing
-
-  1) no-cookies
-       valid
-         
-interface DocumentLikeAPI {
-  cookie: string;
-}
-function documentLikeAPIFunction(): DocumentLikeAPI {
-  return null;
-}
-function X() {
-  // These usages are OK because they are not on the DOM document
-  var document: DocumentLikeAPI = documentLikeAPIFunction();
-  document.cookie = '...';
-  document.cookie = '...';
-}
-
-documentLikeAPIFunction().cookie = '...';
-:
-     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Enlistments\eslint-plugin-sdl\tests\lib\rules\no-cookies.js)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-
+  165 passing (3s)
 
