@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (46ms)
+      √ bypassSecurityTrustHtml('XSS') (41ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -102,7 +102,7 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (499ms)
+ (480ms)
     invalid
       2) document.cookie = '...'
       3) window.document.cookie = '...'
@@ -128,7 +128,6 @@ namespace Sample {
 
   no-document-domain
     valid
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 interface DocumentLikeAPI {
   domain: string;
@@ -142,8 +141,7 @@ function main() {
 }
       
     invalid
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-      √ var doc = window.document; doc.domain = 'somevalue';
+      √ var doc = window.document; doc.domain = 'somevalue'; (44ms)
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -186,10 +184,6 @@ newWindow.document.domain = somevalue;
         document.writeln('', '');
       
     invalid
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         var doc = document; 
         doc.write('...');
@@ -267,10 +261,6 @@ config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"
       √ document.body.innerHTML = ''
       √ document.test
       √ element.insertAdjacentHTML()
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         class Test {
           innerHTML: string;
@@ -285,9 +275,6 @@ config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"
         test.outerHTML = test;
       
     invalid
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         var element = document.getElementById(id);
         element.innerHTML = 'test';
@@ -360,13 +347,10 @@ config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"
         Math.random();
         crypto.pseudoRandomBytes();
       
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       Math.random();
       this.Math.random();
       
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       function notMath() : Math{
         return Math;
@@ -374,11 +358,9 @@ config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"
     
       notMath().random();
       
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         crypto.pseudoRandomBytes();
       
-config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       function notCrypto() : Crypto{
         return crypto;
@@ -446,7 +428,7 @@ config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"
                         </svg>
                     );
                 };
-             (230ms)
+             (244ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -582,7 +564,7 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  160 passing (1s)
+  160 passing (2s)
   5 failing
 
   1) no-cookies
@@ -598,9 +580,13 @@ document2.cookie = '...';
 document2.cookie = '...'; 
 documentLikeAPIFunction().cookie = '...'
     :
-     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
+Parser: (unknown)
+Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
 Occurred while linting <input>
-      at Object.create (lib\rules\no-cookies.js:32:87)
+      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
+      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
+      at Object.create (lib\rules\no-cookies.js:33:57)
       at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
       at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
       at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
@@ -613,13 +599,18 @@ Occurred while linting <input>
       at testValidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:911:28)
       at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1261:33)
       at process.processImmediate (node:internal/timers:483:21)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
 
   2) no-cookies
        invalid
          document.cookie = '...':
-     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
+Parser: (unknown)
+Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
 Occurred while linting <input>
-      at Object.create (lib\rules\no-cookies.js:32:87)
+      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
+      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
+      at Object.create (lib\rules\no-cookies.js:33:57)
       at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
       at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
       at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
@@ -632,13 +623,18 @@ Occurred while linting <input>
       at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
       at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
       at process.processImmediate (node:internal/timers:483:21)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
 
   3) no-cookies
        invalid
          window.document.cookie = '...':
-     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
+Parser: (unknown)
+Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
 Occurred while linting <input>
-      at Object.create (lib\rules\no-cookies.js:32:87)
+      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
+      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
+      at Object.create (lib\rules\no-cookies.js:33:57)
       at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
       at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
       at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
@@ -651,13 +647,18 @@ Occurred while linting <input>
       at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
       at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
       at process.processImmediate (node:internal/timers:483:21)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
 
   4) no-cookies
        invalid
          this.window.document.cookie = '...':
-     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
+Parser: (unknown)
+Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
 Occurred while linting <input>
-      at Object.create (lib\rules\no-cookies.js:32:87)
+      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
+      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
+      at Object.create (lib\rules\no-cookies.js:33:57)
       at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
       at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
       at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
@@ -670,13 +671,18 @@ Occurred while linting <input>
       at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
       at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
       at process.processImmediate (node:internal/timers:483:21)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
 
   5) no-cookies
        invalid
          globalThis.window.document.cookie = '...':
-     TypeError: Error while loading rule 'rule-to-test/no-cookies': Cannot read properties of undefined (reading 'getCompilerOptions')
+     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
+Parser: (unknown)
+Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
 Occurred while linting <input>
-      at Object.create (lib\rules\no-cookies.js:32:87)
+      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
+      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
+      at Object.create (lib\rules\no-cookies.js:33:57)
       at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
       at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
       at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
@@ -689,6 +695,7 @@ Occurred while linting <input>
       at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
       at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
       at process.processImmediate (node:internal/timers:483:21)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
 
 
 
