@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (98ms)
+      √ bypassSecurityTrustHtml('XSS') (105ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -83,9 +83,9 @@ document2.cookie = '...';
 document2.cookie = '...'; 
 documentLikeAPIFunction().cookie = '...'
     
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 interface DocumentLikeAPI {
   cookie: string;
@@ -101,31 +101,31 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (1115ms)
+ (905ms)
     invalid
       √ document.cookie = '...'
       √ window.document.cookie = '...'
       √ this.window.document.cookie = '...'
       √ globalThis.window.document.cookie = '...'
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 function documentFunction(): Document {
   return window.document;
 }
 documentFunction().cookie = '...';
       
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 namespace Sample {
     function method() {
         return document.cookie;
     }
 }
-       (39ms)
+      
 
   no-document-domain
     valid
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
 interface DocumentLikeAPI {
   domain: string;
@@ -139,8 +139,8 @@ function main() {
 }
       
     invalid
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-      √ var doc = window.document; doc.domain = 'somevalue'; (77ms)
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+      √ var doc = window.document; doc.domain = 'somevalue';
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -183,10 +183,10 @@ newWindow.document.domain = somevalue;
         document.writeln('', '');
       
     invalid
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         var doc = document; 
         doc.write('...');
@@ -264,10 +264,10 @@ lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
       √ document.body.innerHTML = ''
       √ document.test
       √ element.insertAdjacentHTML()
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         class Test {
           innerHTML: string;
@@ -280,11 +280,11 @@ lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-       (39ms)
+      
     invalid
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         var element = document.getElementById(id);
         element.innerHTML = 'test';
@@ -357,13 +357,13 @@ lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
         Math.random();
         crypto.pseudoRandomBytes();
       
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       Math.random();
       this.Math.random();
       
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       function notMath() : Math{
         return Math;
@@ -371,11 +371,11 @@ lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
     
       notMath().random();
       
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
         crypto.pseudoRandomBytes();
       
-lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
+config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
       function notCrypto() : Crypto{
         return crypto;
@@ -443,7 +443,7 @@ lib: lib.es5.d.ts,lib.es2015.d.ts,lib.dom.d.ts
                         </svg>
                     );
                 };
-             (539ms)
+             (366ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -525,7 +525,7 @@ function main() {
         window.frames[0].postMessage(message, "*");
         var w1 = window.open(url);
         w1.postMessage(message, "*");
-       (55ms)
+      
 
   no-unsafe-alloc
     valid
@@ -579,5 +579,5 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  165 passing (3s)
+  165 passing (2s)
 
