@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (43ms)
+      √ bypassSecurityTrustHtml('XSS') (126ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -83,30 +83,44 @@ document2.cookie = '...';
 document2.cookie = '...'; 
 documentLikeAPIFunction().cookie = '...'
     
+      1) 
+interface DocumentLikeAPI {
+  cookie: string;
+}
+function documentLikeAPIFunction(): DocumentLikeAPI {
+  return null;
+}
+function X() {
+  // These usages are OK because they are not on the DOM document
+  var document: DocumentLikeAPI = documentLikeAPIFunction();
+  document.cookie = '...';
+  document.cookie = '...';
+}
+
+documentLikeAPIFunction().cookie = '...';
+
     invalid
       √ document.cookie = '...'
       √ window.document.cookie = '...'
       √ this.window.document.cookie = '...'
       √ globalThis.window.document.cookie = '...'
-escapedText: document
-tsType: [object Object]
-type: Document
-Type: Document
-      1) 
+      √ 
+function documentFunction(): Document {
+  return window.document;
+}
+documentFunction().cookie = '...';
+       (50ms)
+      √ 
 namespace Sample {
     function method() {
         return document.cookie;
     }
 }
-      
+       (42ms)
 
   no-document-domain
     valid
-escapedText: document
-tsType: [object Object]
-type: DocumentLikeAPI
-Type: DocumentLikeAPI
-      2) 
+      √ 
 interface DocumentLikeAPI {
   domain: string;
 }
@@ -117,13 +131,9 @@ function main() {
   var document: DocumentLikeAPI = documentLikeAPIFunction();
   document.domain = 'somevalue';
 }
-      
+       (48ms)
     invalid
-escapedText: doc
-tsType: [object Object]
-type: Document
-Type: Document
-      √ var doc = window.document; doc.domain = 'somevalue'; (68ms)
+      √ var doc = window.document; doc.domain = 'somevalue'; (103ms)
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -146,7 +156,7 @@ newWindow.document.domain = somevalue;
             writeln: () => {},
           };
         }
-       (39ms)
+      
       √ 
         function documentLikeAPIFunction() {
           return {
@@ -166,22 +176,6 @@ newWindow.document.domain = somevalue;
         document.writeln('', '');
       
     invalid
-escapedText: doc
-tsType: [object Object]
-type: Document
-Type: Document
-escapedText: doc
-tsType: [object Object]
-type: Document
-Type: Document
-escapedText: undefined
-tsType: [object Object]
-type: Document
-Type: Document
-escapedText: undefined
-tsType: [object Object]
-type: Document
-Type: Document
       √ 
         var doc = document; 
         doc.write('...');
@@ -191,7 +185,7 @@ Type: Document
         }
         documentFunction().write('...');
         documentFunction().writeln('...');        
-      
+       (44ms)
       √ 
         document.write('...');
         document.writeln('...');
@@ -250,7 +244,7 @@ Type: Document
       √ 
         import $ from "jquery";
         test.html('XSS');  
-      
+       (124ms)
 
   no-inner-html
     valid
@@ -259,18 +253,6 @@ Type: Document
       √ document.body.innerHTML = ''
       √ document.test
       √ element.insertAdjacentHTML()
-escapedText: undefined
-tsType: [object Object]
-type: this
-escapedText: undefined
-tsType: [object Object]
-type: this
-escapedText: test
-tsType: [object Object]
-type: Test
-escapedText: test
-tsType: [object Object]
-type: Test
       √ 
         class Test {
           innerHTML: string;
@@ -283,17 +265,8 @@ type: Test
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-       (55ms)
+       (77ms)
     invalid
-escapedText: element
-tsType: [object Object]
-type: HTMLElement
-escapedText: element
-tsType: [object Object]
-type: HTMLElement
-escapedText: element
-tsType: [object Object]
-type: HTMLElement
       √ 
         var element = document.getElementById(id);
         element.innerHTML = 'test';
@@ -360,25 +333,16 @@ type: HTMLElement
         pseudoRandomByte();
         cryptos.pseudoRondomBytes();
         cryptos.pseudoRondomBytes();
-      
+       (42ms)
     invalid
       √ 
         Math.random();
         crypto.pseudoRandomBytes();
       
-escapedText: Math
-tsType: [object Object]
-type: Math
-escapedText: undefined
-tsType: [object Object]
-type: Math
       √ 
       Math.random();
       this.Math.random();
       
-escapedText: undefined
-tsType: [object Object]
-type: Math
       √ 
       function notMath() : Math{
         return Math;
@@ -386,15 +350,9 @@ type: Math
     
       notMath().random();
       
-escapedText: crypto
-tsType: [object Object]
-type: Crypto
       √ 
         crypto.pseudoRandomBytes();
       
-escapedText: undefined
-tsType: [object Object]
-type: Crypto
       √ 
       function notCrypto() : Crypto{
         return crypto;
@@ -435,7 +393,7 @@ type: Crypto
       √ 
                 var x = `https://www.template-examples.com`
                 var y = `ftps://www.template-file-examples.com`
-            
+             (38ms)
       √ 
                 var x = `https://www.${multipartExample}.com`
                 var y = `ftps://www.${multipartExample}.com`
@@ -462,7 +420,7 @@ type: Crypto
                         </svg>
                     );
                 };
-             (400ms)
+             (1397ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -544,7 +502,7 @@ function main() {
         window.frames[0].postMessage(message, "*");
         var w1 = window.open(url);
         w1.postMessage(message, "*");
-       (44ms)
+       (53ms)
 
   no-unsafe-alloc
     valid
@@ -598,37 +556,28 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  161 passing (2m)
-  2 failing
+  164 passing (2m)
+  1 failing
 
   1) no-cookies
-       invalid
-         
-namespace Sample {
-    function method() {
-        return document.cookie;
-    }
-}
-      :
-     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Enlistments\eslint-plugin-sdl\tests\lib\rules\no-cookies.js)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-  2) no-document-domain
        valid
          
 interface DocumentLikeAPI {
-  domain: string;
+  cookie: string;
 }
 function documentLikeAPIFunction(): DocumentLikeAPI {
   return null;
 }
-function main() {
+function X() {
+  // These usages are OK because they are not on the DOM document
   var document: DocumentLikeAPI = documentLikeAPIFunction();
-  document.domain = 'somevalue';
+  document.cookie = '...';
+  document.cookie = '...';
 }
-      :
-     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Enlistments\eslint-plugin-sdl\tests\lib\rules\no-document-domain.js)
+
+documentLikeAPIFunction().cookie = '...';
+:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Enlistments\eslint-plugin-sdl\tests\lib\rules\no-cookies.js)
       at process.processImmediate (node:internal/timers:483:21)
       at process.callbackTrampoline (node:internal/async_hooks:130:17)
 
