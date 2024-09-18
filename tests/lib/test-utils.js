@@ -9,6 +9,9 @@
 
 const path = require("path");
 
+console.log("dir" + __dirname);
+console.log("tsconfig" + path.join(__dirname, '../fixtures/tsconfig.json'));
+
 module.exports = {
     tsParserOptions: {
         parser: require("@typescript-eslint/parser"),

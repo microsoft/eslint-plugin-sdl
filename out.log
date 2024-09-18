@@ -2,11 +2,13 @@
 > @microsoft/eslint-plugin-sdl@0.2.2 test
 > mocha tests --recursive
 
+dirC:\Enlistments\eslint-plugin-sdl\tests\lib
+tsconfigC:\Enlistments\eslint-plugin-sdl\tests\fixtures\tsconfig.json
 
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (105ms)
+      √ bypassSecurityTrustHtml('XSS') (91ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -101,7 +103,7 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (905ms)
+ (945ms)
     invalid
       √ document.cookie = '...'
       √ window.document.cookie = '...'
@@ -140,7 +142,7 @@ function main() {
       
     invalid
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
-      √ var doc = window.document; doc.domain = 'somevalue';
+      √ var doc = window.document; doc.domain = 'somevalue'; (49ms)
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -280,7 +282,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-      
+       (40ms)
     invalid
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
 config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
@@ -443,7 +445,7 @@ config: {"jsx":1,"lib":["lib.es5.d.ts","lib.es2015.d.ts","lib.dom.d.ts"],"noEmit
                         </svg>
                     );
                 };
-             (366ms)
+             (332ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
