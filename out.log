@@ -6,7 +6,7 @@
 
   no-angular-bypass-sanitizer
     valid
-      √ bypassSecurityTrustHtml('XSS') (41ms)
+      √ bypassSecurityTrustHtml('XSS') (59ms)
       √ x.bypassSecurityTrustHtml()
       √ x.BypassSecurityTrustHtml('XSS')
     invalid
@@ -72,7 +72,7 @@
 
   no-cookies
     valid
-      1) 
+      √ 
 function documentLikeAPIFunction(){
   return {
     cookie:'fake.cookie'
@@ -102,12 +102,12 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
- (480ms)
+ (567ms)
     invalid
-      2) document.cookie = '...'
-      3) window.document.cookie = '...'
-      4) this.window.document.cookie = '...'
-      5) globalThis.window.document.cookie = '...'
+      √ document.cookie = '...'
+      √ window.document.cookie = '...'
+      √ this.window.document.cookie = '...'
+      √ globalThis.window.document.cookie = '...'
 config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
 config: {"jsx":1,"noEmit":true,"noUnusedLocals":true,"noUnusedParameters":true,"allowNonTsExtensions":true,"allowJs":true,"checkJs":true,"configFilePath":"C:/Enlistments/eslint-plugin-sdl/tests/fixtures/tsconfig.json"}
       √ 
@@ -141,7 +141,7 @@ function main() {
 }
       
     invalid
-      √ var doc = window.document; doc.domain = 'somevalue'; (44ms)
+      √ var doc = window.document; doc.domain = 'somevalue';
       √ document.domain = 'somevalue'
       √ window.document.domain = 'somevalue'
       √ 
@@ -428,7 +428,7 @@ newWindow.document.domain = somevalue;
                         </svg>
                     );
                 };
-             (244ms)
+             (413ms)
       √ 
                 var x = "http://localhost/test";
                 var y = "http://localhost";
@@ -564,138 +564,5 @@ function main() {
       √ <iframe sandbox="allow-same-origin allow-scripts"/>;
 
 
-  160 passing (2s)
-  5 failing
-
-  1) no-cookies
-       valid
-         
-function documentLikeAPIFunction(){
-  return {
-    cookie:'fake.cookie'
-  }
-}
-var document2 = documentLikeAPIFunction(); 
-document2.cookie = '...'; 
-document2.cookie = '...'; 
-documentLikeAPIFunction().cookie = '...'
-    :
-     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
-Parser: (unknown)
-Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
-Occurred while linting <input>
-      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
-      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
-      at Object.create (lib\rules\no-cookies.js:33:57)
-      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
-      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
-      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
-      at Array.forEach (<anonymous>)
-      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
-      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
-      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
-      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
-      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
-      at testValidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:911:28)
-      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1261:33)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-  2) no-cookies
-       invalid
-         document.cookie = '...':
-     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
-Parser: (unknown)
-Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
-Occurred while linting <input>
-      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
-      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
-      at Object.create (lib\rules\no-cookies.js:33:57)
-      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
-      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
-      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
-      at Array.forEach (<anonymous>)
-      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
-      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
-      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
-      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
-      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
-      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
-      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-  3) no-cookies
-       invalid
-         window.document.cookie = '...':
-     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
-Parser: (unknown)
-Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
-Occurred while linting <input>
-      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
-      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
-      at Object.create (lib\rules\no-cookies.js:33:57)
-      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
-      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
-      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
-      at Array.forEach (<anonymous>)
-      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
-      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
-      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
-      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
-      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
-      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
-      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-  4) no-cookies
-       invalid
-         this.window.document.cookie = '...':
-     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
-Parser: (unknown)
-Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
-Occurred while linting <input>
-      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
-      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
-      at Object.create (lib\rules\no-cookies.js:33:57)
-      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
-      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
-      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
-      at Array.forEach (<anonymous>)
-      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
-      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
-      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
-      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
-      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
-      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
-      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-  5) no-cookies
-       invalid
-         globalThis.window.document.cookie = '...':
-     Error: Error while loading rule 'rule-to-test/no-cookies': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser.
-Parser: (unknown)
-Note: detected a parser other than @typescript-eslint/parser. Make sure the parser is configured to forward "parserOptions.project" to @typescript-eslint/parser.
-Occurred while linting <input>
-      at throwError (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:38:11)
-      at Object.getParserServices (node_modules\@typescript-eslint\utils\dist\eslint-utils\getParserServices.js:21:9)
-      at Object.create (lib\rules\no-cookies.js:33:57)
-      at Object.create (node_modules\eslint\lib\rule-tester\rule-tester.js:610:49)
-      at createRuleListeners (node_modules\eslint\lib\linter\linter.js:942:21)
-      at C:\Enlistments\eslint-plugin-sdl\node_modules\eslint\lib\linter\linter.js:1067:84
-      at Array.forEach (<anonymous>)
-      at runRules (node_modules\eslint\lib\linter\linter.js:998:34)
-      at Linter._verifyWithFlatConfigArrayAndWithoutProcessors (node_modules\eslint\lib\linter\linter.js:1909:31)
-      at Linter._verifyWithFlatConfigArray (node_modules\eslint\lib\linter\linter.js:2048:21)
-      at Linter.verify (node_modules\eslint\lib\linter\linter.js:1509:61)
-      at runRuleForItem (node_modules\eslint\lib\rule-tester\rule-tester.js:811:35)
-      at testInvalidTemplate (node_modules\eslint\lib\rule-tester\rule-tester.js:967:28)
-      at Context.<anonymous> (node_modules\eslint\lib\rule-tester\rule-tester.js:1274:33)
-      at process.processImmediate (node:internal/timers:483:21)
-      at process.callbackTrampoline (node:internal/async_hooks:130:17)
-
-
+  165 passing (2s)
 
