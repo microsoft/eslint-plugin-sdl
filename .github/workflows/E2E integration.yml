@@ -83,6 +83,6 @@ jobs:
       - name: Upload eslint results as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: eslint-result
+          name: eslint-result-${{ matrix.os }}
           path: ${{env.PROJECT}}/eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
           if-no-files-found: error
