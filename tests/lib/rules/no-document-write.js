@@ -11,7 +11,7 @@ var ruleTester = new RuleTester();
 ruleTester.run(ruleId, rule, {
   valid: [
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `     
         interface DocumentLikeAPI {
           write: ((arg : string) => void);
@@ -48,7 +48,7 @@ ruleTester.run(ruleId, rule, {
   ],
   invalid: [
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
         var doc = document; 
         doc.write('...');

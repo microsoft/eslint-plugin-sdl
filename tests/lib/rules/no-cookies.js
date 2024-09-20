@@ -23,7 +23,7 @@ document2.cookie = '...';
 documentLikeAPIFunction().cookie = '...'
     `,
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
 interface DocumentLikeAPI {
   cookie: string;
@@ -60,7 +60,7 @@ documentLikeAPIFunction().cookie = '...';
       errors: [{ messageId: "doNotUseCookies" }]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
 function documentFunction(): Document {
   return window.document;
@@ -70,7 +70,7 @@ documentFunction().cookie = '...';
       errors: [{ messageId: "doNotUseCookies" }]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
 namespace Sample {
     function method() {

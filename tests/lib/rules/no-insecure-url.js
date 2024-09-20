@@ -44,7 +44,7 @@ ruleTester.run(ruleId, rule, {
                 function f(x : string = 'https://www.example.com') {}
                 function f(y : string = 'ftps://www.example.com') {}
             `,
-            languageOptions: testUtils.tsParserOptions,
+            languageOptions: testUtils.tsLanguageOptions,
         },
         {   // should allow user-provided exceptions matches, regardless of upper/lower-case
             code: `
@@ -76,7 +76,7 @@ ruleTester.run(ruleId, rule, {
                     );
                 };
             `,
-            languageOptions: testUtils.tsReactParserOptions,
+            languageOptions: testUtils.tsReactLanguageOptions,
         },
         {
             // should allow localhost
@@ -163,7 +163,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 2},
                 { messageId: "doNotUseInsecureUrl", line: 3},
             ],
-            languageOptions: testUtils.tsParserOptions,
+            languageOptions: testUtils.tsLanguageOptions,
         },
         {   // should ban user-provided blacklist matches, regardless of upper/lower-case
             code: `
@@ -209,7 +209,7 @@ ruleTester.run(ruleId, rule, {
             errors: [
                 { messageId: "doNotUseInsecureUrl", line: 4},
             ],
-            languageOptions: testUtils.tsReactParserOptions,
+            languageOptions: testUtils.tsReactLanguageOptions,
         },
         {
             // should escape the url string correctly

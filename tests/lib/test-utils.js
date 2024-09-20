@@ -10,7 +10,7 @@
 const path = require("path");
 
 module.exports = {
-    tsParserOptions: {
+    tsLanguageOptions: {
         parser: require("@typescript-eslint/parser"),
         parserOptions: {
             tsconfigRootDir: path.join(__dirname, '../fixtures'),
@@ -20,7 +20,7 @@ module.exports = {
     moduleParserOptions: {
         ecmaVersion: 6
     },
-    tsReactParserOptions: {
+    tsReactLanguageOptions: {
         parser: require("@typescript-eslint/parser"),
         parserOptions: {
             tsconfigRootDir: path.join(__dirname, '../fixtures'),

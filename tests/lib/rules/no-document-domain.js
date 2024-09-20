@@ -11,7 +11,7 @@ var ruleTester = new RuleTester();
 ruleTester.run(ruleId, rule, {
   valid: [
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
 interface DocumentLikeAPI {
   domain: string;
@@ -28,7 +28,7 @@ function main() {
   ],
   invalid: [
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: "var doc = window.document; doc.domain = 'somevalue';",
       errors: [{ messageId: "default" }]
     },

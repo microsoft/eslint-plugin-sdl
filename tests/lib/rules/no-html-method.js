@@ -26,7 +26,7 @@ ruleTester.run(ruleId, rule, {
       errors: [{ messageId: "default", line: 1 }]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
         import $ from "jquery";
         test.html('XSS');  

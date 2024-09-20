@@ -54,7 +54,7 @@ ruleTester.run(ruleId, rule, {
       `
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
       function random(){}
 
@@ -65,7 +65,7 @@ ruleTester.run(ruleId, rule, {
       `
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code:`
         function pseudoRandomBytes(){}
         function pseudoRandomByte(){}
@@ -89,7 +89,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
       Math.random();
       this.Math.random();
@@ -100,7 +100,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
       function notMath() : Math{
         return Math;
@@ -113,7 +113,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
         crypto.pseudoRandomBytes();
       `,
@@ -122,7 +122,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      languageOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
       function notCrypto() : Crypto{
         return crypto;
