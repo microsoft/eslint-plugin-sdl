@@ -15,12 +15,10 @@ module.exports = {
         parserOptions: {
             tsconfigRootDir: path.join(__dirname, '../fixtures'),
             project: 'tsconfig.json'
-        },
-        sourceType: "module"
+        }
     },
     moduleParserOptions: {
-        ecmaVersion: 6,
-        sourceType: "module"
+        ecmaVersion: 6
     },
     tsReactParserOptions: {
         parser: require("@typescript-eslint/parser"),
@@ -30,7 +28,6 @@ module.exports = {
             ecmaFeatures: {
                 jsx: true
             },
-        },
-        sourceType: "module"
+        }
     }
 };
