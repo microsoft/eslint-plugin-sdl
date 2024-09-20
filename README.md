@@ -21,7 +21,7 @@ When you run npm install within your project's root folder, the plugin will be a
 
 ```sh
 "dependencies": {
-    "@microsoft/eslint-plugin-sdl": "^0.1.9"
+    "@microsoft/eslint-plugin-sdl": "^0.2.2"
 }
 ```
 
