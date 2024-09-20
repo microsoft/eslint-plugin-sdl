@@ -7,7 +7,7 @@ on:
   push:
     branches: [main]
   pull_request_target:
-    branches: [main, release/vNext]
+    branches: [main]
   
 env:
   PROJECT: nodejs # The name of the project you want to clone. It must be on github
@@ -26,14 +26,14 @@ jobs:
 
     steps:
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v4
         
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: ${{env.PROJECT}}/${{env.REPOSITORY}}
           path: ${{env.PROJECT}}
           clean: true
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: eslint-plugin-sdl
           clean: true
@@ -81,8 +81,8 @@ jobs:
         continue-on-error: true 
         
       - name: Upload eslint results as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: eslint-result
+          name: eslint-result-${{ matrix.os }}
           path: ${{env.PROJECT}}/eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
           if-no-files-found: error
