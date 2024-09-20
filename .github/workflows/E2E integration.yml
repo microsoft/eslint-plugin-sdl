@@ -48,7 +48,7 @@ jobs:
           
       - name: Install eslint for discord library and eslint-plugin-dependencies
         run: |
-          npm i eslint
+          npm i eslint@8
           npm i eslint-plugin-security
           npm i eslint-plugin-react
           npm i eslint-plugin-node
