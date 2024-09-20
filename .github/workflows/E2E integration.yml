@@ -7,7 +7,7 @@ on:
   push:
     branches: [main]
   pull_request_target:
-    branches: [main, release/vNext]
+    branches: [main]
   
 env:
   PROJECT: nodejs # The name of the project you want to clone. It must be on github
