@@ -26,14 +26,14 @@ jobs:
 
     steps:
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v4
         
       - uses: actions/checkout@v4
         with:
           repository: ${{env.PROJECT}}/${{env.REPOSITORY}}
           path: ${{env.PROJECT}}
           clean: true
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: eslint-plugin-sdl
           clean: true
