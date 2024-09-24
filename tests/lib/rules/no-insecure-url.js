@@ -27,14 +27,14 @@ ruleTester.run(ruleId, rule, {
                 var x = \`https://www.template-examples.com\`
                 var y = \`ftps://www.template-file-examples.com\`
             `,
-            parserOptions: testUtils.moduleParserOptions
+            languageOptions: testUtils.es6LanguageOptions
         },
         {   // should allow https,ftps multipart template strings in variables
             code: `
                 var x = \`https://www.\${multipartExample}.com\`
                 var y = \`ftps://www.\${multipartExample}.com\`
             `,
-            parserOptions: testUtils.moduleParserOptions
+            languageOptions: testUtils.es6LanguageOptions
         },
         {   // should allow http,ftp in middle of string
             code: "var x = 'The protocol may be http://, https://, ftp:// or ftps://'"
@@ -44,8 +44,7 @@ ruleTester.run(ruleId, rule, {
                 function f(x : string = 'https://www.example.com') {}
                 function f(y : string = 'ftps://www.example.com') {}
             `,
-            parser: testUtils.tsParser,
-            parserOptions: testUtils.tsParserOptions,
+            languageOptions: testUtils.tsLanguageOptions,
         },
         {   // should allow user-provided exceptions matches, regardless of upper/lower-case
             code: `
@@ -77,8 +76,7 @@ ruleTester.run(ruleId, rule, {
                     );
                 };
             `,
-            parser: testUtils.tsParser,
-            parserOptions: testUtils.tsReactParserOptions,
+            languageOptions: testUtils.tsReactLanguageOptions,
         },
         {
             // should allow localhost
@@ -135,7 +133,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 4},
                 { messageId: "doNotUseInsecureUrl", line: 5}
             ],
-            parserOptions: testUtils.moduleParserOptions
+            languageOptions: testUtils.es6LanguageOptions
         },
         {   // should ban http,ftp multipart template strings in variables
             code: `
@@ -150,7 +148,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 2},
                 { messageId: "doNotUseInsecureUrl", line: 3},
             ],
-            parserOptions: testUtils.moduleParserOptions
+            languageOptions: testUtils.es6LanguageOptions
         },
         {   // should ban http,ftp strings in default values
             code: `
@@ -165,8 +163,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 2},
                 { messageId: "doNotUseInsecureUrl", line: 3},
             ],
-            parser: testUtils.tsParser,
-            parserOptions: testUtils.tsParserOptions,
+            languageOptions: testUtils.tsLanguageOptions,
         },
         {   // should ban user-provided blacklist matches, regardless of upper/lower-case
             code: `
@@ -212,8 +209,7 @@ ruleTester.run(ruleId, rule, {
             errors: [
                 { messageId: "doNotUseInsecureUrl", line: 4},
             ],
-            parser: testUtils.tsParser,
-            parserOptions: testUtils.tsReactParserOptions,
+            languageOptions: testUtils.tsReactLanguageOptions,
         },
         {
             // should escape the url string correctly
@@ -231,7 +227,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 1},
             ],
 
-            parserOptions: testUtils.moduleParserOptions
+            languageOptions: testUtils.es6LanguageOptions
         },
         {
             // should escape the string and fix it properly in ``
@@ -241,7 +237,7 @@ ruleTester.run(ruleId, rule, {
                 { messageId: "doNotUseInsecureUrl", line: 1},
             ],
 
-            parserOptions: testUtils.moduleParserOptions
+            languageOptions: testUtils.es6LanguageOptions
         },
     ]
 });

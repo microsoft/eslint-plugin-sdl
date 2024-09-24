@@ -17,8 +17,7 @@ ruleTester.run(ruleId, rule, {
     "window.postMessage('data', 'https://target.domain')",
     "window.postMessage('data', 'https://target.domain', 'menubar=yes')",
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
 class WindowLike {
   postMessage(): void {
@@ -43,8 +42,7 @@ function main() {
       ]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: testUtils.tsParserOptions,
+      languageOptions: testUtils.tsLanguageOptions,
       code: `
         window.frames[0].postMessage(message, "*");
         var w1 = window.open(url);
