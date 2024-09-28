@@ -1,4 +1,5 @@
 # eslint-plugin-sdl
+
 ![Node CI](https://github.com/microsoft/eslint-plugin-sdl/workflows/Node%20CI/badge.svg?branch=main&event=push)
 ![E2E integration](https://github.com/microsoft/eslint-plugin-sdl/workflows/E2E%20integration/badge.svg?branch=main&event=push)
 
@@ -16,50 +17,51 @@ or
 yarn add microsoft/eslint-plugin-sdl
 ```
 
-## Usage
-When you run npm install within your project's root folder, the plugin will be added automatically to your package.json and package-lock.json files. You can also add the plugin to your package.json file manually by specifying the name and version number in the dependencies section like so:
-
-```sh
-"dependencies": {
-    "@microsoft/eslint-plugin-sdl": "^0.2.2"
-}
-```
-
-Run npm install within your root folder to install everything listed in the dependencies section of package.json. If the plugin is listed in your package.json dependencies, eslint will enforce all plugin rules using default settings.
-
 ## Configs
-Including an eslint configuration file in your project allows you to customize how eslint applies rules to your project. If you are using an .eslintrc file, you can include the plugin by adding:
 
-```sh
-plugins: ["@microsoft/eslint-plugin-sdl"]
+Including an ESLint configuration file in your project allows you to customize how ESLint applies rules to your project. You can include the plugin in your [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files) by adding:
+
+```js
+const pluginMicrosoftSdl = require("@microsoft/eslint-plugin-sdl");
+
+module.exports = [
+  ...pluginMicrosoftSdl.configs.recommended
+];
 ```
 
-Eslint will then only enforce rules you specify in the rules section of your .eslintrc file at the severity level you designate. The severity level options are 0 (no error), 1 (warning), and 2 (error). For example:
+ESLint will then only enforce rules you specify in the rules section of your configuration file at the [severity level](https://eslint.org/docs/latest/use/configure/rules) you designate. For example:
 
-```sh
-rules: {
-  "no-eval": 2,
-  "@microsoft/sdl/no-inner-html": 2
-}
+```js
+const pluginMicrosoftSdl = require("@microsoft/eslint-plugin-sdl");
+
+module.exports = [
+  ...pluginMicrosoftSdl.configs.recommended,
+  {
+    rules: {
+      "no-eval": "error",
+      "@microsoft/sdl/no-inner-html": "error"
+    }
+  }
+];
 ```
 
-You can also used the below Shareable config files as guidelines depending on the type of project.
+You can also used the below Shareable Config files using flat config model as guidelines depending on the type of project.
 
 Plugin is shipped with following [Shareable Configs](http://eslint.org/docs/developer-guide/shareable-configs):
 
-- [angular](config/angular.js) - Set of rules for [Angular](https://angular.io) applications
-- [angularjs](config/angularjs.js) - Set of rules for [AngularJS](https://docs.angularjs.org) applications
+- [angular](config/angular.js) - Set of rules for modern [Angular](https://angular.io) applications
+- [angularjs](config/angularjs.js) - Set of rules for legacy [AngularJS](https://docs.angularjs.org) applications
 - [common](config/common.js) - Set of rules for common JavaScript applications
 - [electron](config/electron.js) - Set of rules for Electron applications
-- [node](config/node.js) - Set of rules for Node applications
+- [node](config/node.js) - Set of rules for Node.js applications
 - [react](config/react.js) - Set of rules for [ReactJS](https://reactjs.org) applications
-- [**recommended**](config/recommended.js) - SDL Recommended rules for all applications
-- [**required**](config/required.js) - SDL Required rules for all applications
+- [**recommended**](lib/index.js) - SDL Recommended rules for all applications
+- [**required**](lib/index.js) - SDL Required rules for all applications
 - [typescript](config/typescript.js) - Set of rules for TypeScript applications
 
 ## Rules
 
-Where possible, we leverage existing rules from [ESLint](https://eslint.org/docs/rules/) and community plugins such as [react](https://github.com/yannickcr/eslint-plugin-react), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules) or [security](https://github.com/nodesecurity/eslint-plugin-security#rules).
+Where possible, we leverage existing rules from [ESLint](https://eslint.org/docs/rules/) and community plugins such as [react](https://github.com/jsx-eslint/eslint-plugin-react), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#supported-rules) or [security](https://github.com/nodesecurity/eslint-plugin-security#rules).
 
 We also implemented several [custom rules](./lib/rules) where we did not find sufficient alternative in the community.
 
