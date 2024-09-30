@@ -9,12 +9,14 @@ const rule = require(path.join('../../../lib/rules/', ruleId));
 const RuleTester = require("eslint").RuleTester;
 
 var ruleTester = new RuleTester({
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
+  languageOptions: {
+    parserOptions: {
+      ecmaVersion: 2018,
+      sourceType: 'module',
+      ecmaFeatures: {
+        jsx: true
+      }
+    },
   }
 });
 

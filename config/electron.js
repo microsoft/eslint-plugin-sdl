@@ -1,17 +1,17 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-/**
- * Shareable config for Electron apps. 
- */
-
 "use strict";
 
-module.exports = {
-  plugins: [
-    "@microsoft/sdl"
-  ],
-  rules: {
-    "@microsoft/sdl/no-electron-node-integration": "error"
-  }
-}
+module.exports = (pluginSdl) => {
+  return [
+    {
+      plugins: {
+        "@microsoft/sdl": pluginSdl
+      },
+      rules: {
+        "@microsoft/sdl/no-electron-node-integration": "error"
+      }
+    }
+  ];
+};

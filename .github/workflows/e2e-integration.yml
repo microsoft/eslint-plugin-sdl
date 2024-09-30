@@ -1,0 +1,89 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
+name: E2E integration
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    branches: [main]
+
+env:
+  GITHUB_REPO: nodejs/node
+  GITHUB_REPO_ESLINT_GLOB: lib
+  GITHUB_REPO_TSCONFIG: tsconfig.json
+  TEST_TARGET_DIR: test-target
+  TEST_RUN_DIR: test-run
+  PLUGIN_DIR: eslint-plugin-sdl
+
+# This job runs the plugin with latest ESLint on the target repository in GITHUB_REPO env variable.
+jobs:
+  build:
+    name: E2E run with SARIF
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+
+      - name: Create test run directory
+        run: mkdir ${{env.TEST_RUN_DIR}}
+
+      - name: Install ESLint and dependencies required for test
+        run: |
+          npm i eslint
+          npm i typescript
+          npm i @microsoft/eslint-formatter-sarif
+        working-directory: ${{env.TEST_RUN_DIR}}
+        
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{env.GITHUB_REPO}}
+          path: ${{env.TEST_RUN_DIR}}/${{env.TEST_TARGET_DIR}}
+          clean: true
+
+      - uses: actions/checkout@v4
+        with:
+          path: ${{env.PLUGIN_DIR}}
+          clean: true
+
+      - name: Install plugin dependencies
+        run: npm install --production
+        working-directory: ${{env.PLUGIN_DIR}}
+        
+      - name: Link plugin
+        run: sudo npm link ../${{env.PLUGIN_DIR}}
+        working-directory: ${{env.TEST_RUN_DIR}}
+        if: runner.os == 'Linux'
+      
+      - name: Link plugin
+        run: npm link ../${{env.PLUGIN_DIR}}
+        working-directory: ${{env.TEST_RUN_DIR}}
+        if: runner.os == 'Windows'
+
+      - name: Create ESLint config file
+        run: echo 'module.exports = [...require("@microsoft/eslint-plugin-sdl").configs.recommended];' > eslint.config.js
+        working-directory: ${{env.TEST_RUN_DIR}}
+        
+      - name: Run ESLint
+        run: npx eslint 
+             --config eslint.config.js
+             --no-config-lookup
+             ${{env.TEST_TARGET_DIR}}/${{env.GITHUB_REPO_ESLINT_GLOB}}
+             --parser-options=project:${{env.TEST_TARGET_DIR}}/${{env.GITHUB_REPO_TSCONFIG}} 
+             --format @microsoft/eslint-formatter-sarif 
+             --output-file eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
+        working-directory: ${{env.TEST_RUN_DIR}}
+        continue-on-error: true 
+        
+      - name: Upload ESLint results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eslint-result-${{ matrix.os }}
+          path: ${{env.TEST_RUN_DIR}}/eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
+          if-no-files-found: error

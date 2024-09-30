@@ -1,19 +1,27 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-/**
- * Shareable config for Node apps. 
- */
-
 "use strict";
 
-module.exports = {
-    plugins: [
-        "@microsoft/sdl",
-        "node"
-    ],
-    rules: {
-        "@microsoft/sdl/no-unsafe-alloc": "error",
-        "node/no-deprecated-api": "error"
-    }
-}
+const pluginN = require("eslint-plugin-n");
+
+module.exports = (pluginSdl) => {
+  return [
+    {
+      plugins: {
+        n: pluginN
+      },
+      rules: {
+        "n/no-deprecated-api": "error"
+      }
+    },
+    {
+      plugins: {
+        "@microsoft/sdl": pluginSdl
+      },
+      rules: {
+        "@microsoft/sdl/no-unsafe-alloc": "error"
+      }
+    },
+  ];
+};

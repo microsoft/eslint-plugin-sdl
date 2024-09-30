@@ -26,13 +26,7 @@ ruleTester.run(ruleId, rule, {
       errors: [{ messageId: "default", line: 1 }]
     },
     {
-      parser: testUtils.tsParser,
-      parserOptions: {
-        ecmaVersion: 6,
-        sourceType: "module"
-      },
-      env: {
-      },
+      languageOptions: testUtils.es6LanguageOptions,
       code: `
         import $ from "jquery";
         test.html('XSS');  

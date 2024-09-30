@@ -8,24 +8,31 @@
 "use strict";
 
 const path = require("path");
+const tsParser = require("@typescript-eslint/parser");
 
 module.exports = {
-    tsParser: require.resolve("@typescript-eslint/parser"),
-    tsParserOptions: {
-        tsconfigRootDir: path.join(__dirname, '../fixtures'),
-        project: 'tsconfig.json',
-        sourceType: "module"
+    es6LanguageOptions: {
+        parserOptions: {
+            ecmaVersion: 6,
+            sourceType: "module"
+        }
     },
-    moduleParserOptions: {
-        ecmaVersion: 6,
-        sourceType: "module"
+    tsLanguageOptions: {
+        parser: tsParser,
+        parserOptions: {
+            tsconfigRootDir: path.join(__dirname, "../fixtures"),
+            project: "tsconfig.json"
+        }
     },
-    tsReactParserOptions: {
-        tsconfigRootDir: path.join(__dirname, '../fixtures'),
-        project: 'tsconfig-react.json',
-        sourceType: "module",
-        ecmaFeatures: {
-            jsx: true
+    tsReactLanguageOptions: {
+        parser: tsParser,
+        parserOptions: {
+            tsconfigRootDir: path.join(__dirname, "../fixtures"),
+            project: "tsconfig-react.json",
+            sourceType: "module",
+            ecmaFeatures: {
+                jsx: true
+            }
         }
     }
 };

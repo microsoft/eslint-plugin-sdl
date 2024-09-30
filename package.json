@@ -20,22 +20,22 @@
     "test": "mocha tests --recursive"
   },
   "dependencies": {
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-security": "1.4.0",
-    "eslint-plugin-react": "7.33.0"
+    "eslint-plugin-n": "17.10.3",
+    "eslint-plugin-react": "7.35.2",
+    "eslint-plugin-security": "1.4.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
-    "@typescript-eslint/parser": "^3.7.0",
-    "eslint": "^7.32.0",
-    "mocha": "^8.3.2",
-    "typescript": "^3.9.7"
+    "@typescript-eslint/eslint-plugin": "~8.6.0",
+    "@typescript-eslint/parser": "~8.6.0",
+    "eslint": "~9.11.0",
+    "mocha": "~10.7.0",
+    "typescript": "~5.5.0"
   },
   "peerDependencies": {
-    "eslint": "^7 || ^8"
+    "eslint": "^9"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=18.0.0"
   },
   "license": "MIT"
 }
