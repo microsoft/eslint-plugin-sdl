@@ -20,16 +20,15 @@ module.exports = {
     tsLanguageOptions: {
         parser: tsParser,
         parserOptions: {
-            tsconfigRootDir: path.join(__dirname, "../fixtures"),
-            project: "tsconfig.json"
+            tsconfigRootDir: path.join(__dirname, "..", "fixtures", "ts"),
+            projectService: true,
         }
     },
     tsReactLanguageOptions: {
         parser: tsParser,
         parserOptions: {
-            tsconfigRootDir: path.join(__dirname, "../fixtures"),
-            project: "tsconfig-react.json",
-            sourceType: "module",
+            tsconfigRootDir: path.join(__dirname, "..", "fixtures", "tsx"),
+            projectService: true,
             ecmaFeatures: {
                 jsx: true
             }

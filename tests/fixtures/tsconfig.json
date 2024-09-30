@@ -1,8 +1,0 @@
-{
-    "compilerOptions": {
-        "jsx": "preserve"
-    },
-    "include": [
-        "estree.ts"
-    ]
-}
