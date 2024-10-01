@@ -13,7 +13,7 @@ ruleTester.run(ruleId, rule, {
   invalid: [
     {
       code: "MSApp.execUnsafeLocalFunction(testfunc)",
-      errors: [{ messageId: "default", line: 1, type: "CallExpression" }],
-    },
-  ],
+      errors: [{ messageId: "default", line: 1, type: "CallExpression" }]
+    }
+  ]
 });

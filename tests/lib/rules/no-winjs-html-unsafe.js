@@ -20,8 +20,8 @@ ruleTester.run(ruleId, rule, {
       errors: [
         { messageId: "default", line: 2, type: "CallExpression" },
         { messageId: "default", line: 3, type: "CallExpression" },
-        { messageId: "default", line: 4, type: "CallExpression" },
-      ],
-    },
-  ],
+        { messageId: "default", line: 4, type: "CallExpression" }
+      ]
+    }
+  ]
 });

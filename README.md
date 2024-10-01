@@ -39,9 +39,9 @@ module.exports = [
   {
     rules: {
       "no-eval": "error",
-      "@microsoft/sdl/no-inner-html": "error",
-    },
-  },
+      "@microsoft/sdl/no-inner-html": "error"
+    }
+  }
 ];
 ```
 

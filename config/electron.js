@@ -7,11 +7,11 @@ module.exports = (pluginSdl) => {
   return [
     {
       plugins: {
-        "@microsoft/sdl": pluginSdl,
+        "@microsoft/sdl": pluginSdl
       },
       rules: {
-        "@microsoft/sdl/no-electron-node-integration": "error",
-      },
-    },
+        "@microsoft/sdl/no-electron-node-integration": "error"
+      }
+    }
   ];
 };

@@ -23,22 +23,22 @@ function main() {
   var document: DocumentLikeAPI = documentLikeAPIFunction();
   document.domain = 'somevalue';
 }
-      `,
-    },
+      `
+    }
   ],
   invalid: [
     {
       languageOptions: testUtils.tsLanguageOptions,
       code: "var doc = window.document; doc.domain = 'somevalue';",
-      errors: [{ messageId: "default" }],
+      errors: [{ messageId: "default" }]
     },
     {
       code: "document.domain = 'somevalue'",
-      errors: [{ messageId: "default" }],
+      errors: [{ messageId: "default" }]
     },
     {
       code: "window.document.domain = 'somevalue'",
-      errors: [{ messageId: "default" }],
+      errors: [{ messageId: "default" }]
     },
     {
       code: `
@@ -50,17 +50,17 @@ newWindow.document.domain = somevalue;
       errors: [
         {
           line: 3,
-          messageId: "default",
+          messageId: "default"
         },
         {
           line: 4,
-          messageId: "default",
+          messageId: "default"
         },
         {
           line: 5,
-          messageId: "default",
-        },
-      ],
-    },
-  ],
+          messageId: "default"
+        }
+      ]
+    }
+  ]
 });

@@ -23,7 +23,7 @@ ruleTester.run(ruleId, rule, {
             writeln: () => {},
           };
         }
-      `,
+      `
     },
     {
       code: `
@@ -43,8 +43,8 @@ ruleTester.run(ruleId, rule, {
         document.write('', '');
         document.writeln();
         document.writeln('', '');
-      `,
-    },
+      `
+    }
   ],
   invalid: [
     {
@@ -63,8 +63,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 3 },
         { messageId: "default", line: 4 },
         { messageId: "default", line: 8 },
-        { messageId: "default", line: 9 },
-      ],
+        { messageId: "default", line: 9 }
+      ]
     },
     {
       code: `
@@ -81,8 +81,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
         { messageId: "default", line: 6 },
-        { messageId: "default", line: 7 },
-      ],
-    },
-  ],
+        { messageId: "default", line: 7 }
+      ]
+    }
+  ]
 });

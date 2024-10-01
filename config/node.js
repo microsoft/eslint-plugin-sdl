@@ -9,19 +9,19 @@ module.exports = (pluginSdl) => {
   return [
     {
       plugins: {
-        n: pluginN,
+        n: pluginN
       },
       rules: {
-        "n/no-deprecated-api": "error",
-      },
+        "n/no-deprecated-api": "error"
+      }
     },
     {
       plugins: {
-        "@microsoft/sdl": pluginSdl,
+        "@microsoft/sdl": pluginSdl
       },
       rules: {
-        "@microsoft/sdl/no-unsafe-alloc": "error",
-      },
-    },
+        "@microsoft/sdl/no-unsafe-alloc": "error"
+      }
+    }
   ];
 };

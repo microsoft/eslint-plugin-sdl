@@ -20,7 +20,7 @@ ruleTester.run(ruleId, rule, {
       Math.random;
       math.random();
       random();
-      `,
+      `
     },
     {
       code: `
@@ -30,7 +30,7 @@ ruleTester.run(ruleId, rule, {
       require('random-package');
       require('random-float2');
       require('random2-seed');
-    `,
+    `
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
@@ -41,7 +41,7 @@ ruleTester.run(ruleId, rule, {
         import 'eslint';
         import 'eslint-plugin-sdl';
         import 'testing';
-      `,
+      `
     },
     {
       code: `
@@ -49,7 +49,7 @@ ruleTester.run(ruleId, rule, {
         pseudoRandomBytes();
         pseudoRandomByte();
         cryptos.pseudoRondomBytes();
-      `,
+      `
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -60,7 +60,7 @@ ruleTester.run(ruleId, rule, {
 
       Math.Random;
       Math.random;
-      `,
+      `
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -72,8 +72,8 @@ ruleTester.run(ruleId, rule, {
         pseudoRandomByte();
         cryptos.pseudoRondomBytes();
         cryptos.pseudoRondomBytes();
-      `,
-    },
+      `
+    }
   ],
   invalid: [
     {
@@ -83,8 +83,8 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 3 },
-      ],
+        { messageId: "default", line: 3 }
+      ]
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -94,8 +94,8 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 3 },
-      ],
+        { messageId: "default", line: 3 }
+      ]
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -106,14 +106,14 @@ ruleTester.run(ruleId, rule, {
     
       notMath().random();
       `,
-      errors: [{ messageId: "default", line: 6 }],
+      errors: [{ messageId: "default", line: 6 }]
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
       code: `
         crypto.pseudoRandomBytes();
       `,
-      errors: [{ messageId: "default", line: 2 }],
+      errors: [{ messageId: "default", line: 2 }]
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -124,7 +124,7 @@ ruleTester.run(ruleId, rule, {
     
       notCrypto().pseudoRandomBytes();
       `,
-      errors: [{ messageId: "default", line: 6 }],
+      errors: [{ messageId: "default", line: 6 }]
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
@@ -142,8 +142,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
         { messageId: "default", line: 6 },
-        { messageId: "default", line: 7 },
-      ],
+        { messageId: "default", line: 7 }
+      ]
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
@@ -159,8 +159,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 3 },
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
-        { messageId: "default", line: 6 },
-      ],
+        { messageId: "default", line: 6 }
+      ]
     },
     {
       code: `
@@ -177,8 +177,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
         { messageId: "default", line: 6 },
-        { messageId: "default", line: 7 },
-      ],
-    },
-  ],
+        { messageId: "default", line: 7 }
+      ]
+    }
+  ]
 });

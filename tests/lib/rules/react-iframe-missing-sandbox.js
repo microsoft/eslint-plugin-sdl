@@ -14,10 +14,10 @@ var ruleTester = new RuleTester({
       ecmaVersion: 2018,
       sourceType: "module",
       ecmaFeatures: {
-        jsx: true,
-      },
-    },
-  },
+        jsx: true
+      }
+    }
+  }
 });
 
 ruleTester.run(ruleId, rule, {
@@ -38,48 +38,48 @@ ruleTester.run(ruleId, rule, {
     { code: '<iframe sandbox="allow-scripts"></iframe>' },
     { code: '<iframe sandbox="allow-top-navigation"></iframe>' },
     {
-      code: '<iframe sandbox="allow-top-navigation-by-user-activation"></iframe>',
+      code: '<iframe sandbox="allow-top-navigation-by-user-activation"></iframe>'
     },
     { code: '<iframe sandbox="allow-forms allow-modals"></iframe>' },
     {
-      code: '<iframe sandbox="allow-popups allow-popups-to-escape-sandbox allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>',
-    },
+      code: '<iframe sandbox="allow-popups allow-popups-to-escape-sandbox allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>'
+    }
   ],
   invalid: [
     {
       code: "<iframe></iframe>;",
-      errors: [{ messageId: "attributeMissing" }],
+      errors: [{ messageId: "attributeMissing" }]
     },
     {
       code: "<iframe/>;",
-      errors: [{ messageId: "attributeMissing" }],
+      errors: [{ messageId: "attributeMissing" }]
     },
     {
       code: '<iframe sandbox="__unknown__"></iframe>',
-      errors: [{ messageId: "invalidValue", data: { value: "__unknown__" } }],
+      errors: [{ messageId: "invalidValue", data: { value: "__unknown__" } }]
     },
     {
       code: '<iframe sandbox="allow-popups __unknown__"/>',
-      errors: [{ messageId: "invalidValue", data: { value: "__unknown__" } }],
+      errors: [{ messageId: "invalidValue", data: { value: "__unknown__" } }]
     },
     {
       code: '<iframe sandbox="__unknown__ allow-popups"/>',
-      errors: [{ messageId: "invalidValue", data: { value: "__unknown__" } }],
+      errors: [{ messageId: "invalidValue", data: { value: "__unknown__" } }]
     },
     {
       code: '<iframe sandbox=" allow-forms __unknown__ allow-popups __unknown__  "/>',
       errors: [
         { messageId: "invalidValue", data: { value: "__unknown__" } },
-        { messageId: "invalidValue", data: { value: "__unknown__" } },
-      ],
+        { messageId: "invalidValue", data: { value: "__unknown__" } }
+      ]
     },
     {
       code: '<iframe sandbox="allow-scripts allow-same-origin"></iframe>;',
-      errors: [{ messageId: "invalidCombination" }],
+      errors: [{ messageId: "invalidCombination" }]
     },
     {
       code: '<iframe sandbox="allow-same-origin allow-scripts"/>;',
-      errors: [{ messageId: "invalidCombination" }],
-    },
-  ],
+      errors: [{ messageId: "invalidCombination" }]
+    }
+  ]
 });

@@ -18,8 +18,8 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 3 },
-      ],
-    },
-  ],
+        { messageId: "default", line: 3 }
+      ]
+    }
+  ]
 });

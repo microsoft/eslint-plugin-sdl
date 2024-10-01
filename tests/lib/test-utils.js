@@ -14,15 +14,15 @@ module.exports = {
   es6LanguageOptions: {
     parserOptions: {
       ecmaVersion: 6,
-      sourceType: "module",
-    },
+      sourceType: "module"
+    }
   },
   tsLanguageOptions: {
     parser: tsParser,
     parserOptions: {
       tsconfigRootDir: path.join(__dirname, "..", "fixtures", "ts"),
-      projectService: true,
-    },
+      projectService: true
+    }
   },
   tsReactLanguageOptions: {
     parser: tsParser,
@@ -30,8 +30,8 @@ module.exports = {
       tsconfigRootDir: path.join(__dirname, "..", "fixtures", "tsx"),
       projectService: true,
       ecmaFeatures: {
-        jsx: true,
-      },
-    },
-  },
+        jsx: true
+      }
+    }
+  }
 };

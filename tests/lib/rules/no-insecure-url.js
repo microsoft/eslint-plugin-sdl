@@ -21,7 +21,7 @@ ruleTester.run(ruleId, rule, {
       code: `
                 var x = 'https://www.example.com'
                 var y = 'ftps://www.example.com'
-            `,
+            `
     },
     {
       // should allow https,ftps template strings in variables
@@ -29,7 +29,7 @@ ruleTester.run(ruleId, rule, {
                 var x = \`https://www.template-examples.com\`
                 var y = \`ftps://www.template-file-examples.com\`
             `,
-      languageOptions: testUtils.es6LanguageOptions,
+      languageOptions: testUtils.es6LanguageOptions
     },
     {
       // should allow https,ftps multipart template strings in variables
@@ -37,11 +37,11 @@ ruleTester.run(ruleId, rule, {
                 var x = \`https://www.\${multipartExample}.com\`
                 var y = \`ftps://www.\${multipartExample}.com\`
             `,
-      languageOptions: testUtils.es6LanguageOptions,
+      languageOptions: testUtils.es6LanguageOptions
     },
     {
       // should allow http,ftp in middle of string
-      code: "var x = 'The protocol may be http://, https://, ftp:// or ftps://'",
+      code: "var x = 'The protocol may be http://, https://, ftp:// or ftps://'"
     },
     {
       // should allow https,ftps strings in default values
@@ -49,7 +49,7 @@ ruleTester.run(ruleId, rule, {
                 function f(x : string = 'https://www.example.com') {}
                 function f(y : string = 'ftps://www.example.com') {}
             `,
-      languageOptions: testUtils.tsLanguageOptions,
+      languageOptions: testUtils.tsLanguageOptions
     },
     {
       // should allow user-provided exceptions matches, regardless of upper/lower-case
@@ -64,10 +64,10 @@ ruleTester.run(ruleId, rule, {
           exceptions: [
             "HTTP://www.allow-example.com/?.*",
             "FtP://www.allow-file-example.com",
-            "LdaP://www.allow-ldap-example.com",
-          ],
-        },
-      ],
+            "LdaP://www.allow-ldap-example.com"
+          ]
+        }
+      ]
     },
     {
       // should allow user-provided exceptions for variable name matches, regardless of upper/lower-case
@@ -77,9 +77,9 @@ ruleTester.run(ruleId, rule, {
             `,
       options: [
         {
-          varExceptions: ["insecure?.*"],
-        },
-      ],
+          varExceptions: ["insecure?.*"]
+        }
+      ]
     },
     {
       // should allow xml namespaces, as they are not accessed by the browser
@@ -91,22 +91,22 @@ ruleTester.run(ruleId, rule, {
                     );
                 };
             `,
-      languageOptions: testUtils.tsReactLanguageOptions,
+      languageOptions: testUtils.tsReactLanguageOptions
     },
     {
       // should allow localhost
       code: `
                 var x = "http://localhost/test";
                 var y = "http://localhost";
-            `,
+            `
     },
     {
       // should allow xml namespaces for XHTML and SVG even if outside of jsx xmlns attribute
       code: `
                 var x = "http://www.w3.org/1999/xhtml";
                 var y = "http://www.w3.org/2000/svg";
-            `,
-    },
+            `
+    }
   ],
   invalid: [
     {
@@ -127,8 +127,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "doNotUseInsecureUrl", line: 2 },
         { messageId: "doNotUseInsecureUrl", line: 3 },
         { messageId: "doNotUseInsecureUrl", line: 4 },
-        { messageId: "doNotUseInsecureUrl", line: 5 },
-      ],
+        { messageId: "doNotUseInsecureUrl", line: 5 }
+      ]
     },
     {
       // should ban http,ftp template strings in variables
@@ -148,9 +148,9 @@ ruleTester.run(ruleId, rule, {
         { messageId: "doNotUseInsecureUrl", line: 2 },
         { messageId: "doNotUseInsecureUrl", line: 3 },
         { messageId: "doNotUseInsecureUrl", line: 4 },
-        { messageId: "doNotUseInsecureUrl", line: 5 },
+        { messageId: "doNotUseInsecureUrl", line: 5 }
       ],
-      languageOptions: testUtils.es6LanguageOptions,
+      languageOptions: testUtils.es6LanguageOptions
     },
     {
       // should ban http,ftp multipart template strings in variables
@@ -164,9 +164,9 @@ ruleTester.run(ruleId, rule, {
             `,
       errors: [
         { messageId: "doNotUseInsecureUrl", line: 2 },
-        { messageId: "doNotUseInsecureUrl", line: 3 },
+        { messageId: "doNotUseInsecureUrl", line: 3 }
       ],
-      languageOptions: testUtils.es6LanguageOptions,
+      languageOptions: testUtils.es6LanguageOptions
     },
     {
       // should ban http,ftp strings in default values
@@ -180,9 +180,9 @@ ruleTester.run(ruleId, rule, {
             `,
       errors: [
         { messageId: "doNotUseInsecureUrl", line: 2 },
-        { messageId: "doNotUseInsecureUrl", line: 3 },
+        { messageId: "doNotUseInsecureUrl", line: 3 }
       ],
-      languageOptions: testUtils.tsLanguageOptions,
+      languageOptions: testUtils.tsLanguageOptions
     },
     {
       // should ban user-provided blacklist matches, regardless of upper/lower-case
@@ -202,17 +202,17 @@ ruleTester.run(ruleId, rule, {
         { messageId: "doNotUseInsecureUrl", line: 2 },
         { messageId: "doNotUseInsecureUrl", line: 3 },
         { messageId: "doNotUseInsecureUrl", line: 4 },
-        { messageId: "doNotUseInsecureUrl", line: 5 },
+        { messageId: "doNotUseInsecureUrl", line: 5 }
       ],
       options: [
         {
           blocklist: [
             "htTp://www.ban-example.com/?.*",
             "fTp://www.ban-file-example.com/?.*",
-            "lDAp://www.ban-ldap-example.com/?.*",
-          ],
-        },
-      ],
+            "lDAp://www.ban-ldap-example.com/?.*"
+          ]
+        }
+      ]
     },
     {
       // should ban any other xml attribute with urls in them
@@ -233,13 +233,13 @@ ruleTester.run(ruleId, rule, {
                 };
             `,
       errors: [{ messageId: "doNotUseInsecureUrl", line: 4 }],
-      languageOptions: testUtils.tsReactLanguageOptions,
+      languageOptions: testUtils.tsReactLanguageOptions
     },
     {
       // should escape the url string correctly
       code: `var a1 = "http://moz\ti\tlla.org";`,
       output: `var a1 = "https://moz\\ti\\tlla.org";`,
-      errors: [{ messageId: "doNotUseInsecureUrl", line: 1 }],
+      errors: [{ messageId: "doNotUseInsecureUrl", line: 1 }]
     },
     {
       // should fix url in `` correctly
@@ -247,7 +247,7 @@ ruleTester.run(ruleId, rule, {
       output: "var x1 = `https://foo${multipartExample} http://${multipartExample}.com`;",
       errors: [{ messageId: "doNotUseInsecureUrl", line: 1 }],
 
-      languageOptions: testUtils.es6LanguageOptions,
+      languageOptions: testUtils.es6LanguageOptions
     },
     {
       // should escape the string and fix it properly in ``
@@ -255,7 +255,7 @@ ruleTester.run(ruleId, rule, {
       output: `var a1 = \`https://moz\\ti\\tlla.org\`;`,
       errors: [{ messageId: "doNotUseInsecureUrl", line: 1 }],
 
-      languageOptions: testUtils.es6LanguageOptions,
-    },
-  ],
+      languageOptions: testUtils.es6LanguageOptions
+    }
+  ]
 });

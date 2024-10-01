@@ -8,11 +8,11 @@ module.exports = (pluginSdl) => {
   return [
     {
       plugins: {
-        "@microsoft/sdl": pluginSdl,
+        "@microsoft/sdl": pluginSdl
       },
       rules: {
-        "@microsoft/sdl/no-angular-bypass-sanitizer": "error",
-      },
-    },
+        "@microsoft/sdl/no-angular-bypass-sanitizer": "error"
+      }
+    }
   ];
 };

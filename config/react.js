@@ -11,14 +11,14 @@ module.exports = (pluginSdl) => {
       languageOptions: {
         parserOptions: {
           ecmaFeatures: {
-            jsx: true,
-          },
-        },
-      },
+            jsx: true
+          }
+        }
+      }
     },
     {
       plugins: {
-        react: pluginReact,
+        react: pluginReact
       },
       rules: {
         "react/no-danger": "error",
@@ -27,18 +27,18 @@ module.exports = (pluginSdl) => {
           {
             allowReferrer: false,
             enforceDynamicLinks: "always",
-            warnOnSpreadAttributes: true,
-          },
-        ],
-      },
+            warnOnSpreadAttributes: true
+          }
+        ]
+      }
     },
     {
       plugins: {
-        "@microsoft/sdl": pluginSdl,
+        "@microsoft/sdl": pluginSdl
       },
       rules: {
-        "@microsoft/sdl/react-iframe-missing-sandbox": "error",
-      },
-    },
+        "@microsoft/sdl/react-iframe-missing-sandbox": "error"
+      }
+    }
   ];
 };

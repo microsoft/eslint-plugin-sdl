@@ -7,7 +7,7 @@ module.exports = (pluginSdl) => {
   return [
     {
       plugins: {
-        "@microsoft/sdl": pluginSdl,
+        "@microsoft/sdl": pluginSdl
       },
       rules: {
         "no-caller": "error",
@@ -23,8 +23,8 @@ module.exports = (pluginSdl) => {
         "@microsoft/sdl/no-insecure-url": "error",
         "@microsoft/sdl/no-msapp-exec-unsafe": "error",
         "@microsoft/sdl/no-postmessage-star-origin": "error",
-        "@microsoft/sdl/no-winjs-html-unsafe": "error",
-      },
-    },
+        "@microsoft/sdl/no-winjs-html-unsafe": "error"
+      }
+    }
   ];
 };
