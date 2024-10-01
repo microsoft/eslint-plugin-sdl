@@ -4,7 +4,7 @@
 const path = require("path");
 const testUtils = require("../test-utils");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 
@@ -27,8 +27,8 @@ function main() {
   var w: WindowLike = new WindowLike();
   w.postMessage('test', '*');
 }
-      `
-    }
+      `,
+    },
   ],
   invalid: [
     {
@@ -38,8 +38,8 @@ function main() {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 3 }
-      ]
+        { messageId: "default", line: 3 },
+      ],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -50,8 +50,8 @@ function main() {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 4 }
-      ]
+        { messageId: "default", line: 4 },
+      ],
     },
-  ]
+  ],
 });

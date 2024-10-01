@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 const testUtils = require("../test-utils");
@@ -20,38 +20,36 @@ ruleTester.run(ruleId, rule, {
       Math.random;
       math.random();
       random();
-      `
+      `,
     },
     {
-      
-      code:`
+      code: `
       require('./node_modules/not-unsafe-random');
       require('eslint');
       require('test');
       require('random-package');
       require('random-float2');
       require('random2-seed');
-    `
+    `,
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
-      code:`
+      code: `
         import './node_modules/untest';
         import 'random';
         import 'random-3';
         import 'eslint';
         import 'eslint-plugin-sdl';
         import 'testing';
-      `
+      `,
     },
     {
-      
-      code:`
+      code: `
         cryptos.pseudoRandomBytes();
         pseudoRandomBytes();
         pseudoRandomByte();
         cryptos.pseudoRondomBytes();
-      `
+      `,
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -62,11 +60,11 @@ ruleTester.run(ruleId, rule, {
 
       Math.Random;
       Math.random;
-      `
+      `,
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
-      code:`
+      code: `
         function pseudoRandomBytes(){}
         function pseudoRandomByte(){}
 
@@ -74,8 +72,8 @@ ruleTester.run(ruleId, rule, {
         pseudoRandomByte();
         cryptos.pseudoRondomBytes();
         cryptos.pseudoRondomBytes();
-      `
-    }
+      `,
+    },
   ],
   invalid: [
     {
@@ -85,8 +83,8 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 3 }
-      ]
+        { messageId: "default", line: 3 },
+      ],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -96,8 +94,8 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "default", line: 2 },
-        { messageId: "default", line: 3 }
-      ]
+        { messageId: "default", line: 3 },
+      ],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -108,18 +106,14 @@ ruleTester.run(ruleId, rule, {
     
       notMath().random();
       `,
-      errors: [
-        { messageId: "default", line: 6 }
-      ]
+      errors: [{ messageId: "default", line: 6 }],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
       code: `
         crypto.pseudoRandomBytes();
       `,
-      errors: [
-        { messageId: "default", line: 2 }
-      ]
+      errors: [{ messageId: "default", line: 2 }],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -130,13 +124,11 @@ ruleTester.run(ruleId, rule, {
     
       notCrypto().pseudoRandomBytes();
       `,
-      errors: [
-        { messageId: "default", line: 6 }
-      ]
+      errors: [{ messageId: "default", line: 6 }],
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
-      code:`
+      code: `
       import './node_modules/unique-random';
       import 'chance';
       import 'random-number';
@@ -150,12 +142,12 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
         { messageId: "default", line: 6 },
-        { messageId: "default", line: 7 }
-      ]
+        { messageId: "default", line: 7 },
+      ],
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
-      code:`
+      code: `
       import * as chance1 from 'chance';
       import defaultExport from 'chance';
       import { chance } from 'chance';
@@ -167,11 +159,11 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 3 },
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
-        { messageId: "default", line: 6 }
-      ]
+        { messageId: "default", line: 6 },
+      ],
     },
     {
-      code:`
+      code: `
         require('./node_modules/unique-random');
         require('**/chance.js');
         require('random-number');
@@ -185,8 +177,8 @@ ruleTester.run(ruleId, rule, {
         { messageId: "default", line: 4 },
         { messageId: "default", line: 5 },
         { messageId: "default", line: 6 },
-        { messageId: "default", line: 7 }
-      ]
-    }
-  ]
+        { messageId: "default", line: 7 },
+      ],
+    },
+  ],
 });

@@ -17,6 +17,8 @@
   "bugs": "https://github.com/microsoft/eslint-plugin-sdl/issues",
   "main": "lib/index.js",
   "scripts": {
+    "check-fmt": "prettier . --check",
+    "fmt": "prettier . --write",
     "test": "mocha tests --recursive"
   },
   "dependencies": {
@@ -29,6 +31,7 @@
     "@typescript-eslint/parser": "~8.6.0",
     "eslint": "~9.11.0",
     "mocha": "~10.7.0",
+    "prettier": "~3.3.0",
     "typescript": "~5.5.0"
   },
   "peerDependencies": {

@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 
@@ -12,7 +12,7 @@ ruleTester.run(ruleId, rule, {
     "aHrefSanitizationTrustedUrlList ('.*')",
     "x.aHrefSanitizationTrustedUrlList ('.*')",
     "$compileProvider.aHrefSanitizationTrustedUrlList ()",
-    "$compileProvider.AHrefSanitizationTrustedUrlList ('.*')"
+    "$compileProvider.AHrefSanitizationTrustedUrlList ('.*')",
   ],
   invalid: [
     {
@@ -23,9 +23,9 @@ ruleTester.run(ruleId, rule, {
           line: 1,
           endLine: 1,
           column: 1,
-          endColumn: 56
-        }
-      ]
+          endColumn: 56,
+        },
+      ],
     },
     {
       code: "$compileProvider.imgSrcSanitizationTrustedUrlList('.*');",
@@ -35,9 +35,9 @@ ruleTester.run(ruleId, rule, {
           line: 1,
           endLine: 1,
           column: 1,
-          endColumn: 56
-        }
-      ]
-    }
-  ]
+          endColumn: 56,
+        },
+      ],
+    },
+  ],
 });

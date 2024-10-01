@@ -4,4 +4,4 @@ Calls to document.write or document.writeln manipulate DOM directly without any 
 
 ## Related Rules
 
-* [tslint-microsoft-contrib/no-document-write](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noDocumentWriteRule.ts)
+- [tslint-microsoft-contrib/no-document-write](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noDocumentWriteRule.ts)

@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 const testUtils = require("../test-utils");
@@ -14,16 +14,16 @@ ruleTester.run(ruleId, rule, {
     "test.html()",
     "test.html('','')",
     "element.html('');",
-    "element.html(null);"
+    "element.html(null);",
   ],
   invalid: [
     {
       code: "$('p').html('XSS')",
-      errors: [{ messageId: "default", line: 1 }]
+      errors: [{ messageId: "default", line: 1 }],
     },
     {
       code: "$(selector).html(sample_function())",
-      errors: [{ messageId: "default", line: 1 }]
+      errors: [{ messageId: "default", line: 1 }],
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
@@ -31,9 +31,7 @@ ruleTester.run(ruleId, rule, {
         import $ from "jquery";
         test.html('XSS');  
       `,
-      errors: [
-        { messageId: "default", line: 3 }
-      ]
-    }
-  ]
+      errors: [{ messageId: "default", line: 3 }],
+    },
+  ],
 });

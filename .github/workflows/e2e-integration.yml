@@ -40,7 +40,7 @@ jobs:
           npm i typescript
           npm i @microsoft/eslint-formatter-sarif
         working-directory: ${{env.TEST_RUN_DIR}}
-        
+
       - uses: actions/checkout@v4
         with:
           repository: ${{env.GITHUB_REPO}}
@@ -55,12 +55,12 @@ jobs:
       - name: Install plugin dependencies
         run: npm install --production
         working-directory: ${{env.PLUGIN_DIR}}
-        
+
       - name: Link plugin
         run: sudo npm link ../${{env.PLUGIN_DIR}}
         working-directory: ${{env.TEST_RUN_DIR}}
         if: runner.os == 'Linux'
-      
+
       - name: Link plugin
         run: npm link ../${{env.PLUGIN_DIR}}
         working-directory: ${{env.TEST_RUN_DIR}}
@@ -69,18 +69,18 @@ jobs:
       - name: Create ESLint config file
         run: echo 'module.exports = [...require("@microsoft/eslint-plugin-sdl").configs.recommended];' > eslint.config.js
         working-directory: ${{env.TEST_RUN_DIR}}
-        
+
       - name: Run ESLint
-        run: npx eslint 
-             --config eslint.config.js
-             --no-config-lookup
-             ${{env.TEST_TARGET_DIR}}/${{env.GITHUB_REPO_ESLINT_GLOB}}
-             --parser-options=project:${{env.TEST_TARGET_DIR}}/${{env.GITHUB_REPO_TSCONFIG}} 
-             --format @microsoft/eslint-formatter-sarif 
-             --output-file eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
+        run: npx eslint
+          --config eslint.config.js
+          --no-config-lookup
+          ${{env.TEST_TARGET_DIR}}/${{env.GITHUB_REPO_ESLINT_GLOB}}
+          --parser-options=project:${{env.TEST_TARGET_DIR}}/${{env.GITHUB_REPO_TSCONFIG}}
+          --format @microsoft/eslint-formatter-sarif
+          --output-file eslint-result-${{ matrix.os }}-${{github.run_id}}.sarif
         working-directory: ${{env.TEST_RUN_DIR}}
-        continue-on-error: true 
-        
+        continue-on-error: true
+
       - name: Upload ESLint results as artifact
         uses: actions/upload-artifact@v4
         with:

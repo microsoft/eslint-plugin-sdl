@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 const testUtils = require("../test-utils");
@@ -29,8 +29,8 @@ ruleTester.run(ruleId, rule, {
         let test = new Test("test");
         test.innerHTML = test;
         test.outerHTML = test;
-      `
-    }
+      `,
+    },
   ],
   invalid: [
     // TypeScript with full type information
@@ -45,8 +45,8 @@ ruleTester.run(ruleId, rule, {
       errors: [
         { messageId: "noInnerHtml", line: 3 },
         { messageId: "noInnerHtml", line: 4 },
-        { messageId: "noInsertAdjacentHTML", line: 5 }
-      ]
+        { messageId: "noInsertAdjacentHTML", line: 5 },
+      ],
     },
     {
       code: `
@@ -55,8 +55,8 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "noInnerHtml", line: 2 },
-        { messageId: "noInnerHtml", line: 3 }
-      ]
+        { messageId: "noInnerHtml", line: 3 },
+      ],
     },
     {
       code: `
@@ -65,12 +65,12 @@ ruleTester.run(ruleId, rule, {
       `,
       errors: [
         { messageId: "noInnerHtml", line: 2 },
-        { messageId: "noInnerHtml", line: 3 }
-      ]
+        { messageId: "noInnerHtml", line: 3 },
+      ],
     },
     {
       code: "element.insertAdjacentHTML('beforebegin', 'foo')",
-      errors: [{ messageId: "noInsertAdjacentHTML", line: 1 }]
-    }
-  ]
+      errors: [{ messageId: "noInsertAdjacentHTML", line: 1 }],
+    },
+  ],
 });

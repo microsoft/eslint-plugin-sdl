@@ -4,4 +4,4 @@ Writes to [`document.domain`](https://developer.mozilla.org/en-US/docs/Web/API/D
 
 ## Related Rules
 
-* [tslint-microsoft-contrib/no-document-domain](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noDocumentDomainRule.ts)
+- [tslint-microsoft-contrib/no-document-domain](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noDocumentDomainRule.ts)

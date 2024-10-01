@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 const testUtils = require("../test-utils");
 
@@ -39,25 +39,25 @@ function X() {
 }
 
 documentLikeAPIFunction().cookie = '...';
-`
-    }
+`,
+    },
   ],
   invalid: [
     {
       code: "document.cookie = '...'",
-      errors: [{ messageId: "doNotUseCookies" }]
+      errors: [{ messageId: "doNotUseCookies" }],
     },
     {
       code: "window.document.cookie = '...'",
-      errors: [{ messageId: "doNotUseCookies" }]
+      errors: [{ messageId: "doNotUseCookies" }],
     },
     {
       code: "this.window.document.cookie = '...'",
-      errors: [{ messageId: "doNotUseCookies" }]
+      errors: [{ messageId: "doNotUseCookies" }],
     },
     {
       code: "globalThis.window.document.cookie = '...'",
-      errors: [{ messageId: "doNotUseCookies" }]
+      errors: [{ messageId: "doNotUseCookies" }],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -67,7 +67,7 @@ function documentFunction(): Document {
 }
 documentFunction().cookie = '...';
       `,
-      errors: [{ messageId: "doNotUseCookies" }]
+      errors: [{ messageId: "doNotUseCookies" }],
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -78,7 +78,7 @@ namespace Sample {
     }
 }
       `,
-      errors: [{ messageId: "doNotUseCookies" }]
-    }
-  ]
+      errors: [{ messageId: "doNotUseCookies" }],
+    },
+  ],
 });

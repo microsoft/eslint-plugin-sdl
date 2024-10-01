@@ -4,4 +4,4 @@ Direct calls to method `html()` often (e.g. in jQuery framework) manipulate DOM 
 
 ## Related Rules
 
-* [tslint-microsoft-contrib/no-inner-html](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noInnerHtml.ts)
+- [tslint-microsoft-contrib/no-inner-html](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noInnerHtml.ts)
