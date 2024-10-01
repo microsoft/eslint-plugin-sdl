@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 
@@ -38,9 +38,9 @@ ruleTester.run(ruleId, rule, {
         });
       `,
       errors: [
-        { messageId: "default", line: 4},
-        { messageId: "default", line: 5},
-        { messageId: "default", line: 6}
+        { messageId: "default", line: 4 },
+        { messageId: "default", line: 5 },
+        { messageId: "default", line: 6 }
       ]
     },
     {
@@ -54,9 +54,9 @@ ruleTester.run(ruleId, rule, {
         });
       `,
       errors: [
-        { messageId: "default", line: 4},
-        { messageId: "default", line: 5},
-        { messageId: "default", line: 6}
+        { messageId: "default", line: 4 },
+        { messageId: "default", line: 5 },
+        { messageId: "default", line: 6 }
       ]
     }
   ]

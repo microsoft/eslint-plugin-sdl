@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 const testUtils = require("../test-utils");
@@ -31,9 +31,7 @@ ruleTester.run(ruleId, rule, {
         import $ from "jquery";
         test.html('XSS');  
       `,
-      errors: [
-        { messageId: "default", line: 3 }
-      ]
+      errors: [{ messageId: "default", line: 3 }]
     }
   ]
 });

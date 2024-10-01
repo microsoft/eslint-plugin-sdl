@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 
@@ -28,19 +28,19 @@ ruleTester.run(ruleId, rule, {
     },
     {
       code: "$('p').bypassSecurityTrustResourceUrl('XSS')",
-      errors: [{ messageId: "noBypass"}]
+      errors: [{ messageId: "noBypass" }]
     },
     {
       code: "$('p').bypassSecurityTrustScript('XSS')",
-      errors: [{ messageId: "noBypass"}]
+      errors: [{ messageId: "noBypass" }]
     },
     {
       code: "$('p').bypassSecurityTrustStyle('XSS')",
-      errors: [{ messageId: "noBypass"}]
+      errors: [{ messageId: "noBypass" }]
     },
     {
       code: "$('p').bypassSecurityTrustUrl('XSS')",
-      errors: [{ messageId: "noBypass"}]
+      errors: [{ messageId: "noBypass" }]
     }
   ]
 });

@@ -4,7 +4,7 @@
 const path = require("path");
 const testUtils = require("../test-utils");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 
@@ -52,6 +52,6 @@ function main() {
         { messageId: "default", line: 2 },
         { messageId: "default", line: 4 }
       ]
-    },
+    }
   ]
 });

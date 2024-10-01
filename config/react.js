@@ -18,22 +18,23 @@ module.exports = (pluginSdl) => {
     },
     {
       plugins: {
-        "react": pluginReact
+        react: pluginReact
       },
       rules: {
         "react/no-danger": "error",
-        "react/jsx-no-target-blank": ["error",
+        "react/jsx-no-target-blank": [
+          "error",
           {
             allowReferrer: false,
             enforceDynamicLinks: "always",
-            warnOnSpreadAttributes: true,
+            warnOnSpreadAttributes: true
           }
         ]
       }
     },
     {
       plugins: {
-        "@microsoft/sdl": pluginSdl,
+        "@microsoft/sdl": pluginSdl
       },
       rules: {
         "@microsoft/sdl/react-iframe-missing-sandbox": "error"

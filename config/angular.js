@@ -3,7 +3,7 @@
 
 "use strict";
 
-// Generates shareable config for modern Angular (https://angular.dev/) apps. 
+// Generates shareable config for modern Angular (https://angular.dev/) apps.
 module.exports = (pluginSdl) => {
   return [
     {

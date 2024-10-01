@@ -22,7 +22,7 @@ module.exports = () => {
       files: ["**/*.{ts,tsx}"],
       languageOptions: {
         parserOptions: {
-          parser: "@typescript-eslint/parser",
+          parser: "@typescript-eslint/parser"
         }
       },
       plugins: {

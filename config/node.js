@@ -22,6 +22,6 @@ module.exports = (pluginSdl) => {
       rules: {
         "@microsoft/sdl/no-unsafe-alloc": "error"
       }
-    },
+    }
   ];
 };

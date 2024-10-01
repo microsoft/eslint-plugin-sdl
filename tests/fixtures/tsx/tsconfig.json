@@ -1,8 +1,6 @@
 {
-    "compilerOptions": {
-        "jsx": "preserve"
-    },
-    "include": [
-        "estree.tsx"
-    ]
+  "compilerOptions": {
+    "jsx": "preserve"
+  },
+  "include": ["estree.tsx"]
 }

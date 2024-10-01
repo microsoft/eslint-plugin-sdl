@@ -6,8 +6,8 @@ Cookies should be used only in rare and justifiable cases after thorough securit
 
 ## Further Reading
 
-* [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+- [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 
 ## Related Rules
 
-* [tslint-microsoft-contrib/no-cookies](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noCookiesRule.ts)
+- [tslint-microsoft-contrib/no-cookies](https://github.com/microsoft/tslint-microsoft-contrib/blob/master/src/noCookiesRule.ts)

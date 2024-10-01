@@ -6,4 +6,4 @@
 
 ## Related Rules
 
-* [codeql/js/enabling-electron-renderer-node-integration](https://help.semmle.com/wiki/display/JS/Enabling+Node.js+integration+for+Electron+web+content+renderers)
+- [codeql/js/enabling-electron-renderer-node-integration](https://help.semmle.com/wiki/display/JS/Enabling+Node.js+integration+for+Electron+web+content+renderers)

@@ -3,7 +3,7 @@
 
 const path = require("path");
 const ruleId = path.parse(__filename).name;
-const rule = require(path.join('../../../lib/rules/', ruleId));
+const rule = require(path.join("../../../lib/rules/", ruleId));
 const RuleTester = require("eslint").RuleTester;
 var ruleTester = new RuleTester();
 const testUtils = require("../test-utils");
@@ -23,8 +23,7 @@ ruleTester.run(ruleId, rule, {
       `
     },
     {
-      
-      code:`
+      code: `
       require('./node_modules/not-unsafe-random');
       require('eslint');
       require('test');
@@ -35,7 +34,7 @@ ruleTester.run(ruleId, rule, {
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
-      code:`
+      code: `
         import './node_modules/untest';
         import 'random';
         import 'random-3';
@@ -45,8 +44,7 @@ ruleTester.run(ruleId, rule, {
       `
     },
     {
-      
-      code:`
+      code: `
         cryptos.pseudoRandomBytes();
         pseudoRandomBytes();
         pseudoRandomByte();
@@ -66,7 +64,7 @@ ruleTester.run(ruleId, rule, {
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
-      code:`
+      code: `
         function pseudoRandomBytes(){}
         function pseudoRandomByte(){}
 
@@ -108,18 +106,14 @@ ruleTester.run(ruleId, rule, {
     
       notMath().random();
       `,
-      errors: [
-        { messageId: "default", line: 6 }
-      ]
+      errors: [{ messageId: "default", line: 6 }]
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
       code: `
         crypto.pseudoRandomBytes();
       `,
-      errors: [
-        { messageId: "default", line: 2 }
-      ]
+      errors: [{ messageId: "default", line: 2 }]
     },
     {
       languageOptions: testUtils.tsLanguageOptions,
@@ -130,13 +124,11 @@ ruleTester.run(ruleId, rule, {
     
       notCrypto().pseudoRandomBytes();
       `,
-      errors: [
-        { messageId: "default", line: 6 }
-      ]
+      errors: [{ messageId: "default", line: 6 }]
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
-      code:`
+      code: `
       import './node_modules/unique-random';
       import 'chance';
       import 'random-number';
@@ -155,7 +147,7 @@ ruleTester.run(ruleId, rule, {
     },
     {
       languageOptions: testUtils.es6LanguageOptions,
-      code:`
+      code: `
       import * as chance1 from 'chance';
       import defaultExport from 'chance';
       import { chance } from 'chance';
@@ -171,7 +163,7 @@ ruleTester.run(ruleId, rule, {
       ]
     },
     {
-      code:`
+      code: `
         require('./node_modules/unique-random');
         require('**/chance.js');
         require('random-number');

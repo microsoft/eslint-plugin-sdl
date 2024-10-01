@@ -1,5 +1,3 @@
 {
-    "include": [
-        "estree.ts"
-    ]
+  "include": ["estree.ts"]
 }

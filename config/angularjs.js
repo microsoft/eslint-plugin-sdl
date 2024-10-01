@@ -3,7 +3,7 @@
 
 "use strict";
 
-// Generates shareable config for legacy AngularJS (https://angularjs.org/) apps. 
+// Generates shareable config for legacy AngularJS (https://angularjs.org/) apps.
 module.exports = (pluginSdl) => {
   return [
     {

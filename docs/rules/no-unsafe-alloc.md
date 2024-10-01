@@ -4,9 +4,9 @@ When calling [`Buffer.allocUnsafe`](https://nodejs.org/api/buffer.html#buffer_st
 
 These methods should be used only in justifiable cases (e.g. due to performance reasons) after thorough security review.
 
-* [Rule Source](../../lib/rules/no-unsafe-alloc.js)
-* [Rule Test](../../tests/lib/rules/no-unsafe-alloc.js)
+- [Rule Source](../../lib/rules/no-unsafe-alloc.js)
+- [Rule Test](../../tests/lib/rules/no-unsafe-alloc.js)
 
 ## Resources
 
-* [Node.js - What makes Buffer.allocUnsafe() and Buffer.allocUnsafeSlow() "unsafe"?](https://nodejs.org/api/buffer.html#buffer_what_makes_buffer_allocunsafe_and_buffer_allocunsafeslow_unsafe)
+- [Node.js - What makes Buffer.allocUnsafe() and Buffer.allocUnsafeSlow() "unsafe"?](https://nodejs.org/api/buffer.html#buffer_what_makes_buffer_allocunsafe_and_buffer_allocunsafeslow_unsafe)
