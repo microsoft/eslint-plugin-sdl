@@ -1,0 +1,19 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
+name: Code formatting
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install
+      - run: npm run check-fmt
