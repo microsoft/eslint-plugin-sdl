@@ -21,13 +21,7 @@ yarn add microsoft/eslint-plugin-sdl
 
 ## Configs
 
-Including an ESLint configuration file in your project allows you to customize how ESLint applies rules to your project. You can include the plugin in your [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files) by adding:
-
-```js
-const pluginMicrosoftSdl = require("@microsoft/eslint-plugin-sdl");
-
-module.exports = [...pluginMicrosoftSdl.configs.recommended];
-```
+Including an ESLint configuration file in your project allows you to customize how ESLint applies rules to your project. You can include the plugin in your [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files) as described in examples for [`recommended`](contrib/eslint.config.recommended.js) and [`required`](contrib/eslint.config.required.js) configurations.
 
 ESLint will then only enforce rules you specify in the rules section of your configuration file at the [severity level](https://eslint.org/docs/latest/use/configure/rules) you designate. For example:
 
