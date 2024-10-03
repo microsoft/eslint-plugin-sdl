@@ -29,15 +29,13 @@ module.exports = (pluginSdl) => {
             enforceDynamicLinks: "always",
             warnOnSpreadAttributes: true
           }
-        ]
+        ],
+        "react/react-iframe-missing-sandbox": "error"
       }
     },
     {
       plugins: {
         "@microsoft/sdl": pluginSdl
-      },
-      rules: {
-        "@microsoft/sdl/react-iframe-missing-sandbox": "error"
       }
     }
   ];
