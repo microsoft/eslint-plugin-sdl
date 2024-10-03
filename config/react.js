@@ -30,7 +30,7 @@ module.exports = (pluginSdl) => {
             warnOnSpreadAttributes: true
           }
         ],
-        "react/react-iframe-missing-sandbox": "error"
+        "react/iframe-missing-sandbox": "error"
       }
     },
     {
