@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/eslint-plugin-sdl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ESLint plugin focused on common security issues and misconfigurations discoverable during static testing as part of Microsoft Security Development Lifecycle (SDL)",
   "keywords": [
     "eslint",
