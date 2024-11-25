@@ -1,7 +1,7 @@
 # eslint-plugin-sdl
 
-![Node CI](https://github.com/microsoft/eslint-plugin-sdl/workflows/Node%20CI/badge.svg?branch=main&event=push)
-![E2E integration](https://github.com/microsoft/eslint-plugin-sdl/workflows/E2E%20integration/badge.svg?branch=main&event=push)
+[![Node.js integration](https://github.com/microsoft/eslint-plugin-sdl/actions/workflows/node-version-integration.yml/badge.svg)](https://github.com/microsoft/eslint-plugin-sdl/actions/workflows/node-version-integration.yml)
+[![E2E integration](https://github.com/microsoft/eslint-plugin-sdl/actions/workflows/e2e-integration.yml/badge.svg)](https://github.com/microsoft/eslint-plugin-sdl/actions/workflows/e2e-integration.yml)
 
 [ESLint Plugin](https://eslint.org/docs/developer-guide/working-with-plugins) focused on common security issues and misconfigurations.
 
