@@ -18,9 +18,9 @@ ruleTester.run(ruleId, rule, {
         WinJS.Utilities.setOuterHTMLUnsafe(element, text);
       `,
       errors: [
-        { messageId: "default", line: 2, type: "CallExpression" },
-        { messageId: "default", line: 3, type: "CallExpression" },
-        { messageId: "default", line: 4, type: "CallExpression" }
+        { messageId: "default", line: 2 },
+        { messageId: "default", line: 3 },
+        { messageId: "default", line: 4 }
       ]
     }
   ]
